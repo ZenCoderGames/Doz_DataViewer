@@ -1,0 +1,32 @@
+{
+	"chests": [
+		{
+			"id": "BASIC_CHEST",
+			"name": "Basic Chest",
+			"description": "Basic Chest",
+			"fullDescription": "A simple chest",
+			"path": "entity/items/chests/TimedChest.tscn",
+			"type": "BASIC",
+			"vendorId": "BLACKSMITH_VENDOR"
+		},
+		{
+			"id": "TIMED_CHEST",
+			"name": "Timed Chest",
+			"description": "Timed Chest",
+			"fullDescription": "A chest that only opens if you reach it quickly",
+			"path": "entity/items/chests/TimedChest.tscn",
+			"type": "TIMED",
+			"moveLimit": 80,
+			"vendorId": "ARCHIVIST_VENDOR"
+		},
+		{
+			"id": "LOCKED_CHEST",
+			"name": "Locked Chest",
+			"description": "Locked Chest",
+			"fullDescription": "A locked chest that requires a key to open",
+			"path": "entity/items/chests/LockedChest.tscn",
+			"type": "LOCKED",
+			"vendorId": "BLACKSMITH_VENDOR"
+		}
+	]
+}

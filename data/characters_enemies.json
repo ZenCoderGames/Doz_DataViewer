@@ -1,0 +1,479 @@
+{
+	"characters": {
+		"enemies": [
+			{
+				"#disable": true,
+				"id": "RAT",
+				"displayName": "Rat",
+				"description": "No special properties",
+				"path": "entity/characters/EnemyCharacter.tscn",
+				"spritePath": "entity/characters/textures/Rat_01.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
+				"difficulty": 1,
+				"cost": 2,
+				"xp": 1,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 3,
+						"levelScaling": 1
+					},
+					{
+						"type": "DAMAGE",
+						"value": 1,
+						"levelScaling": 1
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 4
+					}
+				]
+			},
+			{
+				"#disable": true,
+				"id": "RAT_KING",
+				"displayName": "Rat King",
+				"description": "Active: Summons 2 rats to fight with it",
+				"path": "entity/characters/EnemyCharacter.tscn",
+				"spritePath": "entity/characters/textures/RatKing.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
+				"difficulty": 2,
+				"cost": 6,
+				"xp": 4,
+				"maxLimitPerRoom": 1,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 6,
+						"levelScaling": 2
+					},
+					{
+						"type": "DAMAGE",
+						"value": 2,
+						"levelScaling": 1
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 4
+					}
+				],
+				"specials": ["RAT_KING_SPECIAL"]
+			},
+			{
+				"#disable": true,
+				"id": "BARRIER_BOT",
+				"displayName": "Barrier Bot",
+				"description": "Start Combat with a Barrier",
+				"path": "entity/characters/EnemyCharacter.tscn",
+				"spritePath": "entity/characters/textures/BarrierBot.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
+				"difficulty": 1,
+				"cost": 2,
+				"xp": 1,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 2,
+						"levelScaling": 2
+					},
+					{
+						"type": "DAMAGE",
+						"value": 2,
+						"levelScaling": 1
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 4
+					}
+				],
+				"statusEffects": ["STATUS_EFFECT_BARRIER"]
+			},
+			{
+				"#disable": true,
+				"id": "SHIELD_BOT",
+				"displayName": "Shield Bot",
+				"description": "No special properties",
+				"path": "entity/characters/EnemyCharacter.tscn",
+				"spritePath": "entity/characters/textures/ShieldBot.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
+				"difficulty": 1,
+				"cost": 2,
+				"xp": 1,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 2,
+						"levelScaling": 1
+					},
+					{
+						"type": "DAMAGE",
+						"value": 2,
+						"levelScaling": 1
+					},
+					{
+						"type": "SHIELD",
+						"value": 2,
+						"levelScaling": 1
+					}
+				]
+			},
+			{
+				"#disable": true,
+				"id": "STUN_BOT",
+				"displayName": "Stun Bot",
+				"description": "Stuns the target every 3 turns",
+				"path": "entity/characters/EnemyCharacter.tscn",
+				"spritePath": "entity/characters/textures/StunBot.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
+				"difficulty": 1,
+				"cost": 2,
+				"xp": 1,
+				"maxLimitPerRoom": 1,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 4,
+						"levelScaling": 2
+					},
+					{
+						"type": "DAMAGE",
+						"value": 1,
+						"levelScaling": 1
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 4
+					}
+				],
+				"specials": ["STUN_BOT_SPECIAL"],
+				"tags": ["SUPPORT"]
+			},
+			{
+				"#disable": true,
+				"id": "SHIELD_MAGE",
+				"displayName": "Shield Mage",
+				"description": "Shields all allies by +1 Shield every 3 turns",
+				"path": "entity/characters/EnemyCharacter.tscn",
+				"spritePath": "entity/characters/textures/ShieldMage.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
+				"difficulty": 1,
+				"cost": 2,
+				"xp": 1,
+				"maxLimitPerRoom": 1,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 4,
+						"levelScaling": 1
+					},
+					{
+						"type": "DAMAGE",
+						"value": 1,
+						"levelScaling": 1
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 4
+					}
+				],
+				"specials": ["SHIELD_MAGE_SPECIAL"],
+				"tags": ["SUPPORT"]
+			},
+			{
+				"#disable": true,
+				"id": "CLERIC",
+				"displayName": "Cleric",
+				"description": "Heal all allies by +2 Health every 3 turns",
+				"path": "entity/characters/EnemyCharacter.tscn",
+				"spritePath": "entity/characters/textures/Cleric.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
+				"difficulty": 1,
+				"cost": 2,
+				"xp": 1,
+				"maxLimitPerRoom": 1,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 4,
+						"levelScaling": 1
+					},
+					{
+						"type": "DAMAGE",
+						"value": 1,
+						"levelScaling": 1
+					}
+				],
+				"specials": ["CLERIC_SPECIAL"],
+				"tags": ["SUPPORT"]
+			},
+			{
+				"id": "SKELETON",
+				"displayName": "Skeleton",
+				"description": "Passive: Reincarnation (Revives once after death with full health)",
+				"path": "entity/characters/EnemyCharacter.tscn",
+				"spritePath": "entity/characters/textures/Skeleton_01.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
+				"difficulty": 1,
+				"cost": 2,
+				"xp": 1,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 3,
+						"levelScaling": 1
+					},
+					{
+						"type": "DAMAGE",
+						"value": 2,
+						"levelScaling": 1
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 4
+					}
+				],
+				"passives": ["PASSIVE_REINCARNATION_AFTER_1"]
+			},
+			{
+				"#disable": true,
+				"id": "SKELETON_ARCHER",
+				"displayName": "Skeleton Archer",
+				"description": "",
+				"path": "entity/characters/EnemyCharacter.tscn",
+				"spritePath": "entity/characters/textures/Skeleton_01.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
+				"attackRange": 3,
+				"difficulty": 1,
+				"cost": 2,
+				"xp": 1,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 3,
+						"levelScaling": 1
+					},
+					{
+						"type": "DAMAGE",
+						"value": 1,
+						"levelScaling": 1
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 4
+					}
+				],
+				"#specials": ["SKELETON_ARCHER_SHOOT"],
+				"attackTimeline": {
+					"id": "SKELETON_ARCHER_ATTACK_TIMELINE",
+					"totalFrames": 60,
+					"tags": ["BLOCKING"],
+					"useCharacterTarget":true,
+					"actions": [
+						{
+						    "type": "FIRE_PROJECTILE",
+						    "frame": 0,
+						    "params": {
+						      "projectilePath": "entity/projectiles/Projectile_Arrow.tscn",
+						      "projectileSpeed": 200.0,
+						      "arcHeight": 40.0,
+						      "doHit": true,
+						      "#impactEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
+						      "#impactEffectLifetime": 0.75,
+						      "endTimelineOnHit": true
+						    }
+						}
+					]
+				}
+			},
+			{
+				"#disable": true,
+				"id": "SKELETON_MAGE",
+				"displayName": "Skeleton Mage",
+				"description": "",
+				"path": "entity/characters/EnemyCharacter.tscn",
+				"spritePath": "entity/characters/textures/Skeleton_01.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
+				"attackRange": -1,
+				"canMove": false,
+				"canAttack": false,
+				"difficulty": 1,
+				"cost": 2,
+				"xp": 1,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 4,
+						"levelScaling": 1
+					},
+					{
+						"type": "DAMAGE",
+						"value": 0
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 4
+					}
+				],
+				"specials": ["SKELETON_MAGE_LIGHTNING_STRIKE"]
+			},
+			{
+				"id": "BEETLE_SHIELD",
+				"displayName": "Shield Beetle",
+				"description": "Passive: Shield Deathrattle (Gives all allies in the dungeon +2 shield on death)",
+				"path": "entity/characters/EnemyCharacter.tscn",
+				"spritePath": "entity/characters/textures/Beetle_01.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
+				"difficulty": 1,
+				"cost": 2,
+				"xp": 1,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 1,
+						"levelScaling": 1
+					},
+					{
+						"type": "DAMAGE",
+						"value": 2,
+						"levelScaling": 1
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 4
+					}
+				],
+				"passives": ["PASSIVE_DEATHRATTLE_SHIELD"]
+			},
+			{
+				"#disable": true,
+				"id": "GHOST",
+				"displayName": "Ghost",
+				"description": "Passive: Stealth (Goes invisible)",
+				"path": "entity/characters/EnemyCharacter.tscn",
+				"spritePath": "entity/characters/textures/Ghost_01.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
+				"difficulty": 1,
+				"cost": 5,
+				"xp": 2,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 4,
+						"levelScaling": 2
+					},
+					{
+						"type": "DAMAGE",
+						"value": 2,
+						"levelScaling": 1
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 4
+					}
+				],
+				"specials": ["GHOST_SPECIAL"]
+			},
+			{
+				"#disable": true,
+				"id": "GIANT",
+				"displayName": "Giant",
+				"description": "Passive: Regeneration (Heal for 1 every turn)",
+				"path": "entity/characters/EnemyCharacter.tscn",
+				"spritePath": "entity/characters/textures/Giant_01.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
+				"difficulty": 2,
+				"cost": 10,
+				"xp": 5,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 10,
+						"levelScaling": 5
+					},
+					{
+						"type": "DAMAGE",
+						"value": 3,
+						"levelScaling": 1
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 4
+					}
+				],
+				"passives": ["PASSIVE_REGENERATION"]
+			},
+			{
+				"#disable": true,
+				"id": "SERPENT",
+				"displayName": "Serpent",
+				"description": "Active: Petrify (Stuns all enemies around it for 1 turn)",
+				"path": "entity/characters/EnemyCharacter.tscn",
+				"spritePath": "entity/characters/textures/Serpent_01.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
+				"difficulty": 2,
+				"cost": 5,
+				"xp": 5,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 6,
+						"levelScaling": 1
+					},
+					{
+						"type": "DAMAGE",
+						"value": 3,
+						"levelScaling": 1
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 4
+					}
+				],
+				"specials": ["SERPENT_SPECIAL"]
+			},
+			{
+				"#disable": true,
+				"id": "AUTOMATON",
+				"displayName": "Automaton",
+				"description": "Active: Repair (Restores 50% health)",
+				"path": "entity/characters/EnemyCharacter.tscn",
+				"spritePath": "entity/characters/textures/Automaton_01.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
+				"difficulty": 3,
+				"cost": 7,
+				"xp": 10,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 8,
+						"levelScaling": 4
+					},
+					{
+						"type": "DAMAGE",
+						"value": 4,
+						"levelScaling": 1
+					},
+					{
+						"type": "SHIELD",
+						"value": 4,
+						"maxValue": 4,
+						"levelScaling": 1
+					}
+				],
+				"specials": ["AUTOMATON_SPECIAL"]
+			}
+		]
+	}
+}

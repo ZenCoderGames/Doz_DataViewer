@@ -1,0 +1,116 @@
+{
+	"spells": [
+		{
+			"id": "SPELL_LIGHTNING_BOLT",
+			"cooldown": 10,
+			"timeline": {
+				"id": "SPELL_SPELL_LIGHTNING_BOLT_TIMELINE",
+				"totalFrames": 3,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"range": 3,
+							"maxTargets": 1
+						}
+					},
+					{
+						"type": "DO_DAMAGE_TO_TARGETS",
+						"params": {
+							"damage": 6
+						}
+					},
+					{
+						"type": "PLAY_AUDIO",
+						"params": {
+							"audioId": "PLAYER_ATTACK"
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SPELL_AOE_STUN",
+			"cooldown": 10,
+			"timeline": {
+				"id": "SPELL_SPELL_AOE_STUN_TIMELINE",
+				"totalFrames": 3,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"range": 1,
+							"maxTargets": 4
+						}
+					},
+					{
+						"type": "ADD_STATUS_EFFECT",
+						"params": {
+							"statusEffectId": "STATUS_EFFECT_STUN",
+							"applyToTargets": true
+						}
+					},
+					{
+						"type": "PLAY_AUDIO",
+						"params": {
+							"audioId": "PLAYER_ATTACK"
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SPELL_FORCE_PUSH",
+			"cooldown": 5,
+			"timeline": {
+				"id": "SPELL_SPELL_FORCE_PUSH_TIMELINE",
+				"totalFrames": 3,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"range": 1,
+							"maxTargets": 4
+						}
+					},
+					{
+						"type": "PUSH",
+						"params": {
+							"amount": 2,
+							"awayFromSource": true
+						}
+					},
+					{
+						"type": "PLAY_AUDIO",
+						"params": {
+							"audioId": "PLAYER_ATTACK"
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SPELL_PROTECTION",
+			"cooldown": 10,
+			"timeline": {
+				"id": "SPELL_SPELL_PROTECTION_TIMELINE",
+				"totalFrames": 2,
+				"actions": [
+					{
+						"type": "ADD_STATUS_EFFECT",
+						"params": {
+							"statusEffectId": "STATUS_EFFECT_PROTECTION",
+							"applyToSource": true
+						}
+					},
+					{
+						"type": "PLAY_AUDIO",
+						"params": {
+							"audioId": "STATUS_EFFECT_BARRIER"
+						}
+					}
+				]
+			}
+		}
+	]
+}

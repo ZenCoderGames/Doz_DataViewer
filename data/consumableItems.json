@@ -1,0 +1,286 @@
+{
+	"items": [
+		{
+			"#disable": true,
+			"id": "ITEM_ATTACK_POTION_SMALL",
+			"name": "Small Attack Boost",
+			"description": "A tiny attack boost for your next attack\n(Gain +2 temporary attack damage)",
+			"fullDescription": "A magical elixar of rage that on consumption.\nGives the player a boost of +2 Attack damage for 1 turn",
+			"path": "entity/items/consumables/Consumable_Tier1.tscn",
+			"type": "CONSUMABLE",
+			"soulCost": 1,
+			"tier": 0,
+			"maxCount": 2,
+			"statusEffectId": "STATUS_EFFECT_SMALL_ATTACK_BOOST",
+			"consumeAudioId": "CONSUMABLE_POTION",
+			"tintColor": "#e06666",
+			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn"
+		},
+		{
+			"#disable": true,
+			"id": "ITEM_HEALTH_POTION_SMALL",
+			"name": "Small Health Potion",
+			"description": "A tiny health potion\n(Heal up to 2 health)",
+			"fullDescription": "A magical elixar of health that on consumption.\nReplenishes the player's health by +2",
+			"path": "entity/items/consumables/Consumable_Tier1.tscn",
+			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
+			"type": "CONSUMABLE",
+			"soulCost": 0,
+			"tier": 0,
+			"maxCount": 2,
+			"statModifiers": [
+				{
+					"type": "HEALTH",
+					"value": 2
+				}
+			],
+			"consumeAudioId": "CONSUMABLE_POTION",
+			"tintColor": "#3bb625"
+		},
+		{
+			"#disable": true,
+			"id": "ITEM_HEALTH_POTION_MEDIUM",
+			"name": "Medium Health Potion",
+			"description": "A medium health potion\n(Heal up to 4 health)",
+			"fullDescription": "A magical elixar of health that on consumption.\nReplenishes the player's health by +4",
+			"path": "entity/items/consumables/Consumable_Tier2.tscn",
+			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
+			"type": "CONSUMABLE",
+			"soulCost": 0,
+			"tier": 0,
+			"maxCount": 1,
+			"statModifiers": [
+				{
+					"type": "HEALTH",
+					"value": 4
+				}
+			],
+			"consumeAudioId": "CONSUMABLE_POTION",
+			"tintColor": "#3bb625"
+		},
+		{
+			"#disable": true,
+			"id": "ITEM_HEALTH_POTION_LARGE",
+			"name": "Large Health Potion",
+			"description": "A large health potion\n(Heal up to 8 health)",
+			"fullDescription": "A magical elixar of health that on consumption.\nReplenishes the player's health by +8",
+			"path": "entity/items/consumables/Consumable_Tier3.tscn",
+			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
+			"type": "CONSUMABLE",
+			"soulCost": 0,
+			"tier": 2,
+			"maxCount": 1,
+			"onlyAtVendors": true,
+			"statModifiers": [
+				{
+					"type": "HEALTH",
+					"value": 8
+				}
+			],
+			"consumeAudioId": "CONSUMABLE_POTION",
+			"#tintColor": "#3bb625"
+		},
+		{
+			"#disable": true,
+			"id": "ITEM_MANA_POTION_SMALL",
+			"name": "Small Mana Potion",
+			"description": "A tiny mana potion\n(Restore up to 1 mana)",
+			"fullDescription": "A tiny mana potion\n(Restore up to 1 mana)",
+			"path": "entity/items/consumables/Consumable_Tier1.tscn",
+			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
+			"type": "CONSUMABLE",
+			"soulCost": 0,
+			"tier": 0,
+			"maxCount": 2,
+			"statModifiers": [
+				{
+					"type": "ENERGY",
+					"value": 1
+				}
+			],
+			"consumeAudioId": "CONSUMABLE_POTION",
+			"tintColor": "#9fc5e8"
+		},
+		{
+			"#disable": true,
+			"id": "ITEM_MANA_POTION_MEDIUM",
+			"name": "Medium Mana Potion",
+			"description": "A medium sized mana potion\n(Restore up to 2 mana)",
+			"fullDescription": "A medium sized mana potion\n(Restore up to 2 mana)",
+			"path": "entity/items/consumables/Consumable_Tier2.tscn",
+			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
+			"type": "CONSUMABLE",
+			"soulCost": 0,
+			"tier": 1,
+			"maxCount": 1,
+			"statModifiers": [
+				{
+					"type": "ENERGY",
+					"value": 2
+				}
+			],
+			"consumeAudioId": "CONSUMABLE_POTION",
+			"tintColor": "#9fc5e8"
+		},
+		{
+			"#disable": true,
+			"id": "ITEM_MANA_POTION_LARGE",
+			"name": "Large Mana Potion",
+			"description": "A large mana potion\n(Restore up to 4 mana)",
+			"fullDescription": "A large mana potion\n(Restore up to 4 mana)",
+			"path": "entity/items/consumables/Consumable_Tier3.tscn",
+			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
+			"type": "CONSUMABLE",
+			"soulCost": 0,
+			"tier": 2,
+			"maxCount": 1,
+			"onlyAtVendors": true,
+			"statModifiers": [
+				{
+					"type": "ENERGY",
+					"value": 4
+				}
+			],
+			"consumeAudioId": "CONSUMABLE_POTION",
+			"tintColor": "#9fc5e8"
+		},
+		{
+			"#disable": true,
+			"id": "ITEM_HEALTH_MANA_POTION",
+			"name": "Hybrid Potion",
+			"description": "A health and mana hybrid potion\n(Restore 4 Health and 2 mana)",
+			"fullDescription": "A health and mana hybrid potion\n(Restore 4 Health and 2 mana)",
+			"path": "entity/items/consumables/Consumable_Tier3.tscn",
+			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
+			"type": "CONSUMABLE",
+			"soulCost": 0,
+			"tier": 2,
+			"maxCount": 1,
+			"onlyAtVendors": true,
+			"statModifiers": [
+				{
+					"type": "HEALTH",
+					"value": 4
+				},
+				{
+					"type": "ENERGY",
+					"value": 2
+				}
+			],
+			"consumeAudioId": "CONSUMABLE_POTION",
+			"tintColor": "#d0e0e3"
+		},
+
+		{
+			"#disable": true,
+			"id": "ITEM_SHIELD_POTION_SMALL",
+			"name": "Small Shield Potion",
+			"description": "A tiny shield potion\n(Gain 2 shield)",
+			"fullDescription": "A magical elixar of shield that on consumption.\nGain +2 shield",
+			"path": "entity/items/consumables/Consumable_Tier1.tscn",
+			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
+			"type": "CONSUMABLE",
+			"soulCost": 0,
+			"tier": 0,
+			"maxCount": 2,
+			"statModifiers": [
+				{
+					"type": "SHIELD",
+					"value": 2
+				}
+			],
+			"consumeAudioId": "CONSUMABLE_POTION",
+			"tintColor": "#3bb625"
+		},
+		{
+			"#disable": true,
+			"id": "ITEM_SHIELD_POTION_MEDIUM",
+			"name": "Medium Shield Potion",
+			"description": "A medium shield potion\n(Gain 4 shield)",
+			"fullDescription": "A magical elixar of shield that on consumption.\nGain +4 shield",
+			"path": "entity/items/consumables/Consumable_Tier2.tscn",
+			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
+			"type": "CONSUMABLE",
+			"soulCost": 0,
+			"tier": 0,
+			"maxCount": 1,
+			"statModifiers": [
+				{
+					"type": "SHIELD",
+					"value": 4
+				}
+			],
+			"consumeAudioId": "CONSUMABLE_POTION",
+			"tintColor": "#3bb625"
+		},
+		{
+			"#disable": true,
+			"id": "ITEM_SHIELD_POTION_LARGE",
+			"name": "Large Shield Potion",
+			"description": "A large shield potion\n(Gain 8 shield)",
+			"fullDescription": "A magical elixar of shield that on consumption.\nGain +8 shield",
+			"path": "entity/items/consumables/Consumable_Tier3.tscn",
+			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
+			"type": "CONSUMABLE",
+			"soulCost": 0,
+			"tier": 2,
+			"maxCount": 1,
+			"onlyAtVendors": true,
+			"statModifiers": [
+				{
+					"type": "SHIELD",
+					"value": 8
+				}
+			],
+			"consumeAudioId": "CONSUMABLE_POTION",
+			"tintColor": "#3bb625"
+		},
+		{
+			"#disable": true,
+			"id": "ITEM_PRISMATIC_SHIELD",
+			"name": "Prismatic Shield",
+			"description": "Block 1 Instance of Any Damage",
+			"fullDescription": "Block 1 Instance of Any Damage",
+			"path": "entity/items/consumables/Consumable_Tier2.tscn",
+			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
+			"type": "CONSUMABLE",
+			"soulCost": 1,
+			"tier": 0,
+			"maxCount": 2,
+			"statusEffectId": "STATUS_EFFECT_BARRIER",
+			"tintColor": "#b2b625"
+		},
+		{
+			"#disable": true,
+			"id": "ITEM_CRITICAL_HIT",
+			"name": "Next Hit Crit",
+			"description": "Your next hit is a critical strike",
+			"fullDescription": "You next hit does a critical strike (2x damage)",
+			"path": "entity/items/consumables/Consumable_Tier1.tscn",
+			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
+			"type": "CONSUMABLE",
+			"soulCost": 1,
+			"tier": 0,
+			"maxCount": 2,
+			"statusEffectId": "STATUS_EFFECT_CRITICAL",
+			"consumeAudioId": "CONSUMABLE_POTION",
+			"tintColor": "#e06666"
+		},
+		{
+			"#disable": true,
+			"id": "ITEM_EVASIVE",
+			"name": "Next Hit Evade",
+			"description": "You evade the next hit from an enemy",
+			"fullDescription": "You evade the next hit from an enemy",
+			"path": "entity/items/consumables/Consumable_Tier1.tscn",
+			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
+			"type": "CONSUMABLE",
+			"soulCost": 1,
+			"tier": 0,
+			"maxCount": 2,
+			"statusEffectId": "STATUS_EFFECT_EVASIVE",
+			"consumeAudioId": "CONSUMABLE_POTION",
+			"tintColor": "#9fc5e8"
+		}
+	]
+}
