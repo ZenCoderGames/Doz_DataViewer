@@ -154,29 +154,29 @@
             <label for="fileSelect">Select Data File:</label>
             <select id="fileSelect">
                 <option value="">-- Choose a file --</option>
-                <option value="audio.json">Audio</option>
                 <option value="characters_bosses.json">Characters - Bosses</option>
                 <option value="characters_enemies.json">Characters - Enemies</option>
                 <option value="characters_player.json">Characters - Player</option>
                 <option value="chests.json">Chests</option>
                 <option value="consumableItems.json">Consumable Items</option>
                 <option value="dungeonModifiers.json">Dungeon Modifiers</option>
-                <option value="encounters.json">Encounters</option>
                 <option value="items.json">Items</option>
                 <option value="keywords.json">Keywords</option>
                 <option value="levels.json">Levels</option>
                 <option value="passives.json">Passives</option>
-                <option value="runeItems.json">Rune Items</option>
+                <option value="runeItems.json">Runes</option>
                 <option value="specials.json">Specials</option>
-                <option value="spellItems.json">Spell Items</option>
-                <option value="spells.json">Spells</option>
                 <option value="statusEffects.json">Status Effects</option>
                 <option value="totems.json">Totems</option>
                 <option value="traps.json">Traps</option>
-                <option value="tutorialPickups.json">Tutorial Pickups</option>
                 <option value="ultimates.json">Ultimates</option>
                 <option value="vendors.json">Vendors</option>
                 <option value="progression/skilltreeShared.json">Skill Tree</option>
+                <option value="abilities/abilities_assassin.json">Skill Tree</option>
+                <option value="abilities/abilities_battlemage.json">Skill Tree</option>
+                <option value="abilities/abilities_berserker.json">Skill Tree</option>
+                <option value="abilities/abilities_paladin.json">Skill Tree</option>
+                <option value="abilities/abilities_shared.json">Skill Tree</option>
             </select>
         </div>
 
@@ -277,9 +277,16 @@
                         if (value === undefined || value === null) {
                             cellContent = '<span style="color: #adb5bd;">-</span>';
                         } else if (key === 'stats' && Array.isArray(value)) {
-                            // Format stats array in a readable way
+                            // Format stats array in a readable way with colors
+                            const statColors = {
+                                'HEALTH': '#e74c3c',     // Red
+                                'DAMAGE': '#e67e22',     // Orange
+                                'ENERGY': '#3498db',     // Blue
+                                'SHIELD': '#9b59b6'      // Purple
+                            };
                             const statsText = value.map(stat => {
                                 let statStr = stat.type || '';
+                                const color = statColors[stat.type] || '#333';
                                 if (stat.value !== undefined) {
                                     statStr += `: ${stat.value}`;
                                     if (stat.maxValue !== undefined) {
@@ -288,7 +295,7 @@
                                 } else if (stat.maxValue !== undefined) {
                                     statStr += `: ${stat.maxValue}`;
                                 }
-                                return statStr;
+                                return `<span style="color: ${color}; font-weight: 600;">${statStr}</span>`;
                             }).join('<br>');
                             cellContent = statsText;
                         } else if (typeof value === 'object') {
