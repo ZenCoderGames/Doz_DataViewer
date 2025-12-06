@@ -3,9 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>DOZ Data Viewer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .controls {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .controls label {
+            font-weight: 600;
+            color: #495057;
+            margin-right: 10px;
+        }
+
+        .controls select {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 2px solid #dee2e6;
+            border-radius: 5px;
+            background: white;
+            cursor: pointer;
+            min-width: 250px;
+        }
+
+        .controls select:hover {
+            border-color: #667eea;
+        }
+
+        .controls select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .table-container {
+            padding: 30px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .nested-data {
+            background: #f1f3f5;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            max-width: 400px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #6c757d;
+            font-size: 1.2em;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            margin: 20px;
+            border-radius: 5px;
+            border: 1px solid #f5c6cb;
+        }
+
+        .record-count {
+            padding: 10px 30px;
+            background: #e7f3ff;
+            color: #004085;
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <div class="container">
+        <header>
+            <h1>DOZ Data Viewer</h1>
+            <p>Browse game data files</p>
+        </header>
+
+        <div class="controls">
+            <label for="fileSelect">Select Data File:</label>
+            <select id="fileSelect">
+                <option value="">-- Choose a file --</option>
+                <option value="audio.json">Audio</option>
+                <option value="characters_bosses.json">Characters - Bosses</option>
+                <option value="characters_enemies.json">Characters - Enemies</option>
+                <option value="characters_player.json">Characters - Player</option>
+                <option value="chests.json">Chests</option>
+                <option value="consumableItems.json">Consumable Items</option>
+                <option value="dungeonModifiers.json">Dungeon Modifiers</option>
+                <option value="encounters.json">Encounters</option>
+                <option value="items.json">Items</option>
+                <option value="keywords.json">Keywords</option>
+                <option value="levels.json">Levels</option>
+                <option value="passives.json">Passives</option>
+                <option value="runeItems.json">Rune Items</option>
+                <option value="specials.json">Specials</option>
+                <option value="spellItems.json">Spell Items</option>
+                <option value="spells.json">Spells</option>
+                <option value="statusEffects.json">Status Effects</option>
+                <option value="totems.json">Totems</option>
+                <option value="traps.json">Traps</option>
+                <option value="tutorialPickups.json">Tutorial Pickups</option>
+                <option value="ultimates.json">Ultimates</option>
+                <option value="vendors.json">Vendors</option>
+            </select>
+        </div>
+
+        <div id="recordCount" class="record-count" style="display: none;"></div>
+
+        <div class="table-container">
+            <div id="content" class="loading">
+                Select a data file to view its contents
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const fileSelect = document.getElementById('fileSelect');
+        const content = document.getElementById('content');
+        const recordCount = document.getElementById('recordCount');
+
+        fileSelect.addEventListener('change', async (e) => {
+            const fileName = e.target.value;
+            if (!fileName) {
+                content.innerHTML = '<div class="loading">Select a data file to view its contents</div>';
+                recordCount.style.display = 'none';
+                return;
+            }
+
+            content.innerHTML = '<div class="loading">Loading...</div>';
+            recordCount.style.display = 'none';
+
+            try {
+                const response = await fetch(`data/${fileName}`);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${fileName}`);
+                }
+
+                const data = await response.json();
+
+                // Get the first key from the JSON (e.g., "audio", "items", etc.)
+                const rootKey = Object.keys(data)[0];
+                const items = data[rootKey];
+
+                if (!Array.isArray(items) || items.length === 0) {
+                    content.innerHTML = '<div class="loading">No data found</div>';
+                    return;
+                }
+
+                // Show record count
+                recordCount.textContent = `Total Records: ${items.length}`;
+                recordCount.style.display = 'block';
+
+                // Get all unique keys from all items to create table headers
+                const allKeys = new Set();
+                items.forEach(item => {
+                    Object.keys(item).forEach(key => allKeys.add(key));
+                });
+
+                // Create table
+                let html = '<table><thead><tr>';
+                allKeys.forEach(key => {
+                    html += `<th>${key}</th>`;
+                });
+                html += '</tr></thead><tbody>';
+
+                // Add rows
+                items.forEach(item => {
+                    html += '<tr>';
+                    allKeys.forEach(key => {
+                        const value = item[key];
+                        let cellContent = '';
+
+                        if (value === undefined || value === null) {
+                            cellContent = '<span style="color: #adb5bd;">-</span>';
+                        } else if (typeof value === 'object') {
+                            cellContent = `<div class="nested-data">${JSON.stringify(value, null, 2)}</div>`;
+                        } else {
+                            cellContent = String(value);
+                        }
+
+                        html += `<td>${cellContent}</td>`;
+                    });
+                    html += '</tr>';
+                });
+
+                html += '</tbody></table>';
+                content.innerHTML = html;
+
+            } catch (error) {
+                content.innerHTML = `<div class="error">Error loading data: ${error.message}</div>`;
+                recordCount.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
