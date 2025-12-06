@@ -1,0 +1,165 @@
+{
+	"abilities": [
+		{
+			"id": "ABILITY_LIGHTNING_POWER",
+			"characterId": "BATTLE_MAGE",
+			"name": "Lightning Power",
+			"description": "Lightning Bolt deals +2 more damage",
+			"soulCost": 15,
+			"timeline": {
+				"id": "ABILITY_LIGHTNING_POWER_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "MODIFY_SPECIAL",
+						"params": {
+							"specialId": "SPECIAL_LIGHTNING_BOLT",
+							"timelineIndex": 1,
+							"damageModifier": 2
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_LIGHTNING_RANGE",
+			"characterId": "BATTLE_MAGE",
+			"name": "Lightning Range",
+			"description": "Lightning Bolt range increased by 2 tiles",
+			"soulCost": 12,
+			"timeline": {
+				"id": "ABILITY_LIGHTNING_RANGE_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "MODIFY_SPECIAL",
+						"params": {
+							"specialId": "SPECIAL_LIGHTNING_BOLT",
+							"selectionRangeModifier": 2
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_LIGHTNING_CHAIN",
+			"characterId": "BATTLE_MAGE",
+			"name": "Chain Lightning",
+			"description": "Lightning Bolt can jump to 1 additional nearby enemy",
+			"soulCost": 20,
+			"timeline": {
+				"id": "ABILITY_LIGHTNING_CHAIN_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "MODIFY_SPECIAL",
+						"params": {
+							"specialId": "SPECIAL_LIGHTNING_BOLT",
+							"addTimeline": {
+								"id": "ABILITY_LIGHTNING_CHAIN_ADD_TIMELINE",
+								"totalFrames": 2,
+								"actions": [
+									{
+										"type": "FIND_TARGETS",
+										"params": {
+											"range": 2,
+											"maxTargets": 1,
+											"excludeLastTargets": true
+										}
+									},
+									{
+										"type": "DO_DAMAGE_TO_TARGETS",
+										"params": {
+											"damage": 4
+										}
+									}
+								]
+							}
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_MANA_EFFICIENCY",
+			"characterId": "BATTLE_MAGE",
+			"name": "Mana Efficiency",
+			"description": "Lightning Bolt costs 1 less mana",
+			"soulCost": 18,
+			"timeline": {
+				"id": "ABILITY_MANA_EFFICIENCY_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "MODIFY_SPECIAL",
+						"params": {
+							"specialId": "SPECIAL_LIGHTNING_BOLT",
+							"manaCostModifier": -1
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_SPELL_MASTERY",
+			"characterId": "BATTLE_MAGE",
+			"name": "Spell Mastery",
+			"description": "Gain +1 max mana permanently",
+			"soulCost": 15,
+			"timeline": {
+				"id": "ABILITY_SPELL_MASTERY_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "ADD_STAT_MODIFIER",
+						"params": {
+							"statModifiers": [
+								{
+									"type": "ENERGY",
+									"absoluteValue": 1,
+									"maxValue": 1
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_ARCANE_SHIELD",
+			"characterId": "BATTLE_MAGE",
+			"name": "Arcane Shield",
+			"description": "Gain +1 shield whenever you cast Lightning Bolt",
+			"soulCost": 12,
+			"timeline": {
+				"id": "ABILITY_ARCANE_SHIELD_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "MODIFY_SPECIAL",
+						"params": {
+							"specialId": "SPECIAL_LIGHTNING_BOLT",
+							"addTimeline": {
+								"id": "ABILITY_ARCANE_SHIELD_ADD_TIMELINE",
+								"totalFrames": 1,
+								"actions": [
+									{
+										"type": "ADD_STAT_MODIFIER",
+										"params": {
+											"statModifiers": [
+												{
+													"type": "SHIELD",
+													"absoluteValue": 1
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					}
+				]
+			}
+		}
+	]
+}

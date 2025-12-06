@@ -1,0 +1,94 @@
+{
+	"custom": [
+		{
+			"id": "TEST_ENC_SINGLE",
+			"enemies": [
+				{
+					"type": "SKELETON",
+					"count": 1
+				}
+			]
+		},
+		{
+			"id": "TEST_ENC_MULTIPLE",
+			"enemies": [
+				{
+					"type": "RAT",
+					"count": 3
+				},
+				{
+					"type": "SKELETON",
+					"count": 1
+				}
+			]
+		},
+		{
+			"id": "TEST_ENC_01",
+			"enemies": [
+				{
+					"type": "SKELETON",
+					"count": 1
+				},
+				{
+					"type": "SERPENT",
+					"count": 1
+				}
+			]
+		},
+		{
+			"id": "BOSS_01",
+			"enemies": [
+				{
+					"type": "SKELETON_KING",
+					"count": 1,
+					"isBoss": true
+				}
+			]
+		},
+		{
+			"id": "BOSS_02",
+			"enemies": [
+				{
+					"type": "DRAGON",
+					"count": 1
+				}
+			]
+		},
+		{
+			"id": "TUTORIAL_FIRST",
+			"enemies": [
+				{
+					"type": "RAT",
+					"count": 1
+				}
+			]
+		},
+		{
+			"id": "TUTORIAL_SECOND",
+			"enemies": [
+				{
+					"type": "RAT",
+					"count": 1
+				},
+				{
+					"type": "SKELETON",
+					"count": 1
+				}
+			]
+		},
+		{
+			"id": "TUTORIAL_MINIBOSS",
+			"enemies": [
+				{
+					"type": "SKELETON",
+					"count": 1,
+					"isMiniboss": true
+				},
+				{
+					"type": "RAT",
+					"count": 3
+				}
+			]
+		}
+	]
+}

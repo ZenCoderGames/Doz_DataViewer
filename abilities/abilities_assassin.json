@@ -1,0 +1,93 @@
+{
+	"abilities": [
+		{
+			"id": "ABILITY_STEALTH_LONGER",
+			"characterId": "ASSASSIN",
+			"name": "Stealth++",
+			"description": "Allows [Stealth] to last for 2 Additional Turns",
+			"timeline": {
+				"id": "ABILITY_STEALTH_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "MODIFY_STATUS_EFFECT",
+						"params": {
+							"statusEffectId": "STATUS_EFFECT_STEALTH",
+							"instanceCountModifier": 2
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_STEALTH_ATTACK_BOOST",
+			"characterId": "ASSASSIN",
+			"name": "Deadly Assassin",
+			"description": "Attacking out of [Stealth] now gives you 2 Additional Damage",
+			"timeline": {
+				"id": "ABILITY_STEALTH_ATTACK_BOOST_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "MODIFY_STATUS_EFFECT",
+						"params": {
+							"statusEffectId": "STATUS_EFFECT_STEALTH",
+							"startTimeline": {
+								"id": "ABILITY_STEALTH_ATTACK_BOOST_START_TIMELINE",
+								"totalFrames": 1,
+								"actions": [
+									{
+										"type": "ADD_STAT_MODIFIER",
+										"params": {
+											"statModifiers": [
+												{
+													"type": "DAMAGE",
+													"absoluteValue": 2
+												}
+											]
+										}
+									}
+								]
+							},
+							"endTimeline": {
+								"id": "ABILITY_STEALTH_ATTACK_BOOST_END_TIMELINE",
+								"totalFrames": 1,
+								"actions": [
+									{
+										"type": "ADD_STAT_MODIFIER",
+										"params": {
+											"statModifiers": [
+												{
+													"type": "DAMAGE",
+													"absoluteValue": -2
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_STEALTH_REFRESH",
+			"characterId": "ASSASSIN",
+			"name": "Shadow Mage",
+			"description": "Any [Stealth] kill restores 2 Mana",
+			"timeline": {
+				"id": "ABILITY_STEALTH_REFRESH_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "ADD_PASSIVE",
+						"params": {
+							"passiveId": "PASSIVE_ASSASSIN_SPECIAL_MANA_ON_KILL"
+						}
+					}
+				]
+			}
+		}
+	]
+}

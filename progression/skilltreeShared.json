@@ -1,0 +1,181 @@
+{
+	"skilltree": {
+		"id": "SHARED_SKILLTREE",
+		"type": "SHARED",
+		"skills": [
+			{
+				"id": "STARTING_ITEMS",
+				"name": "Starter Items",
+				"description": "Spawn 1 Additional Item in each Floor",
+				"unlockCost": 50,
+				"enableCost": 1,
+				"dungeonModifiers": ["ADDITIONAL_ITEM"]
+			},
+			{
+				"id": "STARTING_EQUIPMENT",
+				"name": "Starter Equipment",
+				"description": "Start combat with a Random Equipment",
+				"unlockCost": 100,
+				"enableCost": 1,
+				"dungeonModifiers": ["STARTER_EQUIPMENT"]
+			},
+			{
+				"id": "STARTING_POTION",
+				"name": "Starter Potion",
+				"description": "Start combat with a Random Potion",
+				"unlockCost": 100,
+				"enableCost": 1,
+				"dungeonModifiers": ["STARTER_POTION"]
+			},
+			{
+				"id": "ECONOMY",
+				"name": "Economy",
+				"description": "Start combat with 5 souls",
+				"unlockCost": 50,
+				"enableCost": 1,
+				"dungeonModifiers": ["SOUL_START_5"]
+			},
+			{
+				"id": "SOUL_BOOST",
+				"name": "Soul Booster",
+				"description": "Start combat with 10 additional souls",
+				"unlockCost": 100,
+				"enableCost": 2,
+				"parentSkillId": "ECONOMY",
+				"dungeonModifiers": ["SOUL_START_10"]
+			},
+			{
+				"id": "VENDOR_DISCOUNT",
+				"name": "Vendor Discount",
+				"description": "All vendor items are 25% cheaper",
+				"unlockCost": 100,
+				"enableCost": 1,
+				"dungeonModifiers": ["VENDOR_DISCOUNT_25"]
+			},
+			{
+				"id": "BONUS_HEALTH",
+				"name": "Bonus Health",
+				"description": "Gain +4 Starting Health",
+				"unlockCost": 50,
+				"enableCost": 2,
+				"dungeonModifiers": ["BONUS_HEALTH"]
+			},
+			{
+				"id": "BONUS_SHIELD",
+				"name": "Bonus Shield",
+				"description": "Gain +4 Max Shield",
+				"unlockCost": 50,
+				"enableCost": 2,
+				"dungeonModifiers": ["BONUS_SHIELD"]
+			},
+			{
+				"id": "STARTING_SHIELD",
+				"name": "Shield Boost",
+				"description": "Start with +4 Shield",
+				"unlockCost": 50,
+				"enableCost": 2,
+				"dungeonModifiers": ["STARTING_SHIELD"]
+			},
+			{
+				"id": "FLOOR_HEAL",
+				"name": "Rested Warrior",
+				"description": "At the start of each floor, heal up to 50% of your hp",
+				"unlockCost": 100,
+				"enableCost": 1,
+				"passives": ["PASSIVE_HEAL_ON_FLOOR_START"]
+			},
+			{
+				"id": "REINCARNATION",
+				"name": "Reincarnation",
+				"description": "After your first death, come back to life at 50% of your max hp",
+				"unlockCost": 100,
+				"enableCost": 3,
+				"passives": ["PASSIVE_REINCARNATION"]
+			},
+			{
+				"id": "IMPROVED_SPECIALS",
+				"name": "Full Mana",
+				"description": "Start the game with full mana",
+				"unlockCost": 50,
+				"enableCost": 2,
+				"dungeonModifiers": ["FULL_MANA"]
+			},
+			{
+				"id": "SPECIAL_EFFICIENCY",
+				"name": "Special Cost Reduction",
+				"description": "Specials cost 1 less mana",
+				"unlockCost": 100,
+				"enableCost": 2,		
+				"passives": ["PASSIVE_REDUCE_SPECIAL_COUNT"]
+			},
+			{
+				"id": "SPECIAL_REFRESH",
+				"name": "Refreshed Mana",
+				"description": "At the start of each floor, refill your mana back to full",
+				"unlockCost": 100,
+				"enableCost": 1,
+				"passives": ["PASSIVE_MANA_REFILL_ON_FLOOR_START"]
+			},
+			{
+				"id": "KELPTOMANCY",
+				"name": "Kelptomancy",
+				"description": "Gold Drop Amount +25%",
+				"unlockCost": 100,
+				"enableCost": 2,
+				"dungeonModifiers": ["KLEPTOMANCY_25"]
+			},
+			{
+				"id": "ULTIMATUM",
+				"name": "Ultimatum",
+				"description": "At the start of each floor, add 25% charge to your ultimate",
+				"unlockCost": 100,
+				"enableCost": 3,
+				"passives": ["PASSIVE_ULTIMATE_RECHARGE_ON_FLOOR_START"]
+			},
+			{
+				"id": "ULTIMATE_HASTE",
+				"name": "Ultimate Haste",
+				"description": "Ultimates charge up at a 50% faster rate",
+				"unlockCost": 100,
+				"enableCost": 4,
+				"dungeonModifiers": ["ULTIMATE_HASTE_50"]
+			},
+			{
+				"id": "PALADIN_UNLOCK",
+				"name": "Paladin Mastery",
+				"description": "When you cast your Ultimate, heal for 50% of your max health",
+				"unlockCharacter": "PALADIN",
+				"unlockCharacterLevel": 5,
+				"enableCost": 4,
+				"passives": ["PASSIVE_ULTIMATE_HEAL_50"]
+			},
+			{
+				"id": "BERSERKER_UNLOCK",
+				"name": "Berserker Mastery",
+				"description": "Start the game with +6 shield",
+				"unlockCharacter": "BERSERKER",
+				"unlockCharacterLevel": 5,
+				"enableCost": 4,
+				"passives": ["PASSIVE_SHIELD_RECHARGE_ON_FLOOR_START"]
+			},
+			{
+				"id": "ASSASSIN_UNLOCK",
+				"name": "Assassin Mastery",
+				"description": "When you cast your Ultimate, go into Stealth",
+				"unlockCharacter": "ASSASSIN",
+				"unlockCharacterLevel": 5,
+				"enableCost": 2,
+				"passives": ["PASSIVE_ULTIMATE_STEALTH"]
+			},
+			{
+				"id": "MAGE_UNLOCK",
+				"name": "Mage Mastery",
+				"description": "Start the game with +2 Mana",
+				"unlockCharacter": "BATTLE_MAGE",
+				"unlockCharacterLevel": 5,
+				"enableCost": 2,
+				"dungeonModifiers": ["BONUS_MANA"]
+			}
+		]
+	}
+}

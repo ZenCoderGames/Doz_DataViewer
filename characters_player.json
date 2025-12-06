@@ -1,0 +1,503 @@
+{
+	"characters": {
+		"heroes": [
+			{
+				"id": "HERO_TEST",
+				"displayName": "Champion",
+				"description": "Champion",
+				"path": "entity/characters/Player/PlayerCharacter.tscn",
+				"spritePath": "entity/characters/textures/Player_Base.png",
+				"portraitPath": "resource/portraits/Paladin.png",
+				"isGeneric": true,
+				"isInCharacterSelect": false,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 4
+					},
+					{
+						"type": "DAMAGE",
+						"value": 2
+					},
+					{
+						"type": "ENERGY",
+						"maxValue": 4
+					}
+				]
+			},
+			{
+				"id": "HERO_TUTORIAL",
+				"displayName": "Champion",
+				"description": "Champion",
+				"path": "entity/characters/Player/PlayerCharacter.tscn",
+				"spritePath": "entity/characters/textures/Player_Base.png",
+				"portraitPath": "resource/portraits/Paladin.png",
+				"isGeneric": true,
+				"isInCharacterSelect": false,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 30
+					},
+					{
+						"type": "DAMAGE",
+						"value": 2
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 8
+					},
+					{
+						"type": "ENERGY",
+						"maxValue": 4
+					}
+				]
+			},
+			{
+				"id": "PALADIN",
+				"displayName": "Paladin",
+				"description": "Paladin",
+				"path": "entity/characters/Player/Paladin.tscn",
+				"#spritePath": "entity/characters/textures/Player_Base.png",
+				"portraitPath": "resource/portraits/Paladin.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Player.tscn",
+				"isGeneric": false,
+				"isInCharacterSelect": true,
+				"unlockCost": 50,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 20
+					},
+					{
+						"type": "DAMAGE",
+						"value": 2
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 4
+					},
+					{
+						"type": "ENERGY",
+						"value": 0,
+						"maxValue": 4
+					}
+				],
+				"specials": ["SPECIAL_PROTECTION", "SPECIAL_SKIP_TURN"],
+				"passives": ["PASSIVE_PALADIN"],
+				"ultimate": "PALADIN_ULTIMATE",
+				"idleTimeline": {
+					"id": "PALADIN_IDLE_TIMELINE",
+					"totalFrames": 1,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "PLAY_ANIMATION",
+							"params": {
+								"animationName": "Paladin_idle"
+							}
+						}
+					]
+				},
+				"moveTimeline": {
+					"id": "PALADIN_MOVE_TIMELINE",
+					"totalFrames": 1,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "#PLAY_ANIMATION",
+							"params": {
+								"animationName": "Paladin_idle"
+							}
+						},
+						{
+							"type": "MOVEMENT",
+							"params": {
+								"moveType": "INPUT"
+							}
+						}
+					]
+				},
+				"attackComboTimelines": [
+					{
+						"id": "PALADIN_ATTACK_01_TIMELINE",
+						"totalFrames": 24,
+						"speed": 1.5,
+						"tags": ["BLOCKING"],
+						"useCharacterTarget":true,
+						"actions": [
+							{
+								"type": "PLAY_ANIMATION",
+								"params": {
+									"animationName": "Paladin_attack"
+								}
+							},
+							{
+								"type": "DO_HIT",
+								"frame": 16,
+								"params": {
+								}
+							}
+						]
+					},
+					{
+						"id": "PALADIN_ATTACK_02_TIMELINE",
+						"totalFrames": 21,
+						"speed": 1.5,
+						"tags": ["BLOCKING"],
+						"useCharacterTarget":true,
+						"actions": [
+							{
+								"type": "PLAY_ANIMATION",
+								"params": {
+									"animationName": "Paladin_attack_2"
+								}
+							},
+							{
+								"type": "DO_HIT",
+								"frame": 15,
+								"params": {
+								}
+							}
+						]
+					},
+					{
+						"id": "PALADIN_ATTACK_03_TIMELINE",
+						"totalFrames": 30,
+						"speed": 1.5,
+						"tags": ["BLOCKING"],
+						"useCharacterTarget":true,
+						"actions": [
+							{
+								"type": "PLAY_ANIMATION",
+								"params": {
+									"animationName": "Paladin_Attack_3"
+								}
+							},
+							{
+								"type": "DO_HIT",
+								"frame": 18,
+								"params": {
+									
+								}
+							},
+							{
+								"type": "LIFESTEAL",
+								"frame": 21,
+								"params": {
+									"flatAmount": 1
+								}
+							},
+							{
+								"type": "SPAWN_EFFECT",
+								"frame": 21,
+								"params": {
+									"effectId": "LifestealFX",
+									"effectPath": "entity/effects/Utilites/Effect_Lifesteal.tscn",
+									"parent": true
+								}
+							}
+						]
+					}
+				],
+				"takeHitTimeline": {
+					"id": "PALADIN_TAKE_HIT_TIMELINE",
+					"totalFrames": 5,
+					"speed": 1.0,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "PLAY_ANIMATION",
+							"params": {
+								"animationName": "Paladin_take_damage"
+							}
+						}
+					]
+				},
+				"deathTimeline": {
+					"id": "PALADIN_DEATH_TIMELINE",
+					"totalFrames": 20,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "PLAY_ANIMATION",
+							"params": {
+								"animationName": "Paladin_death"
+							}
+						}
+					]
+				}
+			},
+			{
+				"id": "BERSERKER",
+				"displayName": "Berserker",
+				"description": "Berserker",
+				"path": "entity/characters/Player/PlayerCharacter_v2.tscn",
+				"#spritePath": "entity/characters/textures/Player_Base.png",
+				"portraitPath": "resource/portraits/Berserker.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Player.tscn",
+				"isGeneric": false,
+				"isInCharacterSelect": true,
+				"unlockCost": 50,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 16
+					},
+					{
+						"type": "DAMAGE",
+						"value": 2
+					},
+					{
+						"type": "SHIELD",
+						"value": 4,
+						"maxValue": 8
+					},
+					{
+						"type": "ENERGY",
+						"maxValue": 4
+					}
+				],
+				"specials": ["SPECIAL_AOE_STUN", "SPECIAL_SKIP_TURN"],
+				"passives": ["PASSIVE_BERSERKER"],
+				"ultimate": "BERSERKER_ULTIMATE",
+				"idleTimeline": {
+					"id": "BERSERKER_IDLE_TIMELINE",
+					"totalFrames": 1,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "PLAY_ANIMATION",
+							"params": {
+								"animationName": "vampire_idle"
+							}
+						}
+					]
+				},
+				"moveTimeline": {
+					"id": "BERSERKER_MOVE_TIMELINE",
+					"totalFrames": 1,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "#PLAY_ANIMATION",
+							"params": {
+								"animationName": "vampire_idle"
+							}
+						},
+						{
+							"type": "MOVEMENT",
+							"params": {
+								"moveType": "INPUT"
+							}
+						}
+					]
+				},
+				"attackComboTimelines": [
+					{
+						"id": "BERSERKER_ATTACK_01_TIMELINE",
+						"totalFrames": 30,
+						"speed": 1.5,
+						"tags": ["BLOCKING"],
+						"useCharacterTarget":true,
+						"actions": [
+							{
+								"type": "PLAY_ANIMATION",
+								"params": {
+									"animationName": "vampire_attack"
+								}
+							},
+							{
+								"type": "DO_HIT",
+								"frame": 14,
+								"params": {
+								}
+							}
+						]
+					},
+					{
+						"id": "BERSERKER_ATTACK_02_TIMELINE",
+						"totalFrames": 30,
+						"speed": 1.5,
+						"tags": ["BLOCKING"],
+						"useCharacterTarget":true,
+						"actions": [
+							{
+								"type": "PLAY_ANIMATION",
+								"params": {
+									"animationName": "vampire_attack"
+								}
+							},
+							{
+								"type": "DO_HIT",
+								"frame": 14,
+								"params": {
+								}
+							}
+						]
+					},
+					{
+						"id": "BERSERKER_ATTACK_03_TIMELINE",
+						"totalFrames": 30,
+						"speed": 1.5,
+						"tags": ["BLOCKING"],
+						"useCharacterTarget":true,
+						"actions": [
+							{
+								"type": "PLAY_ANIMATION",
+								"params": {
+									"animationName": "vampire_attack"
+								}
+							},
+							{
+								"type": "ADD_STATUS_EFFECT",
+								"params": {
+									"statusEffectId": "STATUS_EFFECT_CRITICAL",
+									"applyToSource": true
+								}
+							},
+							{
+								"type": "DO_HIT",
+								"frame": 14,
+								"params": {
+									
+								}
+							}
+						]
+					}
+				],
+				"takeHitTimeline": {
+					"id": "BERSERKER_TAKE_HIT_TIMELINE",
+					"totalFrames": 15,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "PLAY_ANIMATION",
+							"params": {
+								"animationName": "vampire_take_damage"
+							}
+						}
+					]
+				},
+				"deathTimeline": {
+					"id": "BERSERKER_DEATH_TIMELINE",
+					"totalFrames": 42,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "PLAY_ANIMATION",
+							"params": {
+								"animationName": "vampire_death"
+							}
+						}
+					]
+				}
+			},
+			{
+				"id": "ASSASSIN",
+				"displayName": "Assassin",
+				"description": "Assassin",
+				"path": "entity/characters/Player/PlayerCharacter.tscn",
+				"spritePath": "entity/characters/textures/Player_Base.png",
+				"portraitPath": "resource/portraits/Assassin.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Player.tscn",
+				"isGeneric": false,
+				"isInCharacterSelect": true,
+				"unlockCost": 50,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 12
+					},
+					{
+						"type": "DAMAGE",
+						"value": 3
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 8
+					},
+					{
+						"type": "ENERGY",
+						"value": 0,
+						"maxValue": 3
+					}
+				],
+				"specials": ["SPECIAL_STEALTH", "SPECIAL_SKIP_TURN"],
+				"passives": ["PASSIVE_3HIT_TELEPORT_BACK"],
+				"ultimate": "ASSASSIN_ULTIMATE"
+			},
+			{
+				"id": "BATTLE_MAGE",
+				"displayName": "Battle Mage",
+				"description": "Battle Mage",
+				"path": "entity/characters/Player/PlayerCharacter.tscn",
+				"spritePath": "entity/characters/textures/Player_Base.png",
+				"portraitPath": "resource/portraits/Random.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Player.tscn",
+				"isGeneric": false,
+				"isInCharacterSelect": true,
+				"unlockCost": 50,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 25
+					},
+					{
+						"type": "DAMAGE",
+						"value": 1
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 6
+					},
+					{
+						"type": "ENERGY",
+						"value": 0,
+						"maxValue": 5
+					}
+				],
+				"specials": ["SPECIAL_LIGHTNING_BOLT", "SPECIAL_FLAME_BURST", "SPECIAL_SKIP_TURN"],
+				"passives": ["PASSIVE_BATTLE_MAGE"],
+				"ultimate": "BATTLEMAGE_ULTIMATE"
+			},
+			{
+				"id": "GENERIC_HERO",
+				"displayName": "You",
+				"description": "Classless",
+				"path": "entity/characters/Player/PlayerCharacter.tscn",
+				"spritePath": "entity/characters/textures/Player_Base.png",
+				"portraitPath": "resource/portraits/Random.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Player.tscn",
+				"isGeneric": true,
+				"isInCharacterSelect": true,
+				"unlockCost": 50,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 20
+					},
+					{
+						"type": "DAMAGE",
+						"value": 3
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 8
+					},
+					{
+						"type": "ENERGY",
+						"value": 0,
+						"maxValue": 4
+					}
+				],
+				"specials": ["SPECIAL_SKIP_TURN"]
+			}
+		]
+	}
+}

@@ -1,0 +1,821 @@
+{
+	"specials": [
+		{
+			"id": "SPECIAL_SKIP_TURN",
+			"name": "Skip Turn",
+			"description": "Skips a turn for tactical advantages",
+			"count": 1,
+			"soulCost": 0,
+			"cooldown": 4,
+			"executeCondition": "NONE",
+			"useDefenseSlot": true,
+			"iconImagePath": "sourceArt/UI/Abilities/T_UI_Icon_Ability_WaitTurn.png",
+			"timeline": {
+				"id": "SPECIAL_SPECIAL_SKIP_TURN_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "SKIP_TURN",
+						"params": {
+							
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SPECIAL_DASH",
+			"name": "Dash",
+			"description": "Dash forward 2 squares",
+			"count": 1,
+			"soulCost": 0,
+			"cooldown": 4,
+			"executeCondition": "NONE",
+			"hasSelection": true,
+			"selectionType": "DIRECTIONAL",
+			"timeline": {
+				"id": "SPECIAL_SPECIAL_DASH_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "MOVEMENT",
+						"params": {
+							"moveType": "DIRECTIONAL",
+							"value": 2
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SPECIAL_PROTECTION",
+			"name": "Protection",
+			"description": "Grants [color=#b4a7d6]Protection[/color] until next hit[color=#b4a7d6]\n\nProtection:[/color]Invulnerability to damage until hit\n\n[color=#9fc5e8]Mana Cost:[/color] 3",
+			"count": 4,
+			"soulCost": 0,
+			"executeCondition": "NONE",
+			"iconImagePath": "sourceArt/UI/Abilities/T_UI_Icon_Ability_Protection.png", 
+			"timeline": {
+				"id": "SPECIAL_SPECIAL_PROTECTION_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "ADD_STATUS_EFFECT",
+						"frame": 0,
+						"params": {
+							"statusEffectId": "STATUS_EFFECT_PROTECTION",
+							"applyToSource": true
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SPECIAL_WHIRLWIND",
+			"name": "Whirlwind",
+			"description": "Do a 360 spin attack with your current damage\n\n[color=#9fc5e8]Mana Cost:[/color] 3",
+			"count": 4,
+			"soulCost": 0,
+			"executeCondition": "NONE",
+			"timeline": {
+				"id": "SPECIAL_SPECIAL_WHIRLWIND_TIMELINE",
+				"totalFrames": 2,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"range": 1,
+							"maxTargets": 4
+						}
+					},
+					{
+						"type": "DO_DAMAGE_TO_TARGETS",
+						"params": {
+							"useCharacterDamage": true
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SPECIAL_STEALTH",
+			"name": "Stealth",
+			"description": "Grants [color=#b4a7d6]Stealth[/color] for 3 turns[color=#b4a7d6]\n\nStealth:[/color] Invisible to enemies\n\n[color=#9fc5e8]Mana Cost:[/color] 2",
+			"count": 3,
+			"soulCost": 0,
+			"executeCondition": "NONE",
+			"timeline": {
+				"id": "SPECIAL_SPECIAL_STEALTH_TIMELINE",
+				"totalFrames": 30,
+				"actions": [
+					{
+						"type": "SPAWN_EFFECT",
+						"params": {
+							"effectId": "Abilitycast",
+							"effectPath": "entity/effects/combat/Effect_Ability_Cast.tscn",
+							"parent": true
+						}
+					},
+					{
+						"type": "ADD_STATUS_EFFECT",
+						"frame": 15,
+						"params": {
+							"statusEffectId": "STATUS_EFFECT_STEALTH",
+							"applyToSource": true
+						}
+					},
+					{
+						"type": "SPAWN_EFFECT",
+						"frame": 15,
+						"params": {
+							"effectId": "Stealthpoof",
+							"effectPath": "entity/effects/combat/Effect_Stealth_Poof.tscn",
+							"parent": true
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SPECIAL_BLINK_STRIKE",
+			"name": "Blink Strike",
+			"description": "Teleport behind a target and strike them with attack damage\n\n[color=#9fc5e8]Mana Cost:[/color] 3",
+			"count": 3,
+			"soulCost": 0,
+			"executeCondition": "NONE",
+			"hasSelection": true,
+			"selectionType": "DIRECTIONAL_CELL",
+			"timeline": {
+				"id": "SPECIAL_SPECIAL_BLINK_STRIKE_TIMELINE",
+				"totalFrames": 2,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"useSelectedCells": true
+						}
+					},
+					{
+						"type": "TELEPORT_TO_TARGET",
+						"params": {
+							"displacement": 1
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SPECIAL_SWAP",
+			"name": "Nether Swap",
+			"description": "Swap positions with a target\n\n[color=#9fc5e8]Mana Cost:[/color] 2",
+			"count": 2,
+			"soulCost": 0,
+			"executeCondition": "NONE",
+			"hasSelection": true,
+			"selectionType": "DIRECTIONAL_CELL",
+			"timeline": {
+				"id": "SPECIAL_SPECIAL_SWAP_TIMELINE",
+				"totalFrames": 2,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"useSelectedCells": true
+						}
+					},
+					{
+						"type": "SWAP_WITH_TARGET",
+						"params": {
+							
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SPECIAL_LIFE_DRAIN",
+			"name": "Life Drain",
+			"description": "Drain +2 life from each enemy around you\n\n[color=#9fc5e8]Mana Cost:[/color] 4",
+			"count": 4,
+			"soulCost": 0,
+			"executeCondition": "NONE",
+			"timeline": {
+				"id": "SPECIAL_SPECIAL_LIFE_DRAIN_TIMELINE",
+				"totalFrames": 3,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"range": 1,
+							"maxTargets": 4
+						}
+					},
+					{
+						"type": "LIFEDRAIN",
+						"params": {
+							"flatAmount": 2
+						}
+					},
+					{
+						"type": "PLAY_AUDIO",
+						"params": {
+							"audioId": "STATUS_EFFECT_BARRIER"
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SPECIAL_LIGHTNING_BOLT",
+			"name": "Lightning Bolt",
+			"description": "A giant bolt of lightning finds a random target near the player and strikes it for 8 damage\n\n[color=#9fc5e8]Mana Cost:[/color] 4",
+			"count": 4,
+			"soulCost": 0,
+			"executeCondition": "NONE",
+			"hasSelection": true,
+			"selectionType": "DIRECTIONAL_CELL",
+			"selectionRange": 3,
+			"timeline": {
+				"id": "SPECIAL_SPECIAL_LIGHTNING_BOLT_TIMELINE",
+				"totalFrames": 3,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"useSelectedCells": true
+						}
+					},
+					{
+						"type": "SPAWN_EFFECT",
+						"params": {
+							"effectId": "Lightningbolt",
+							"effectPath": "entity/effects/combat/Effect_Lightning_Bolt.tscn",
+							"parent": true,
+							"attachToTargets": true
+						}
+					},
+					{
+						"type": "DO_DAMAGE_TO_TARGETS",
+						"params": {
+							"damage": 8
+						}
+					},
+					{
+						"type": "PLAY_AUDIO",
+						"params": {
+							"audioId": "PLAYER_ATTACK"
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SPECIAL_AOE_STUN",
+			"name": "Ground Stomp",
+			"description": "Stun all enemies around you\n\n[color=#9fc5e8]Mana Cost:[/color] 4",
+			"count": 3,
+			"soulCost": 0,
+			"executeCondition": "NONE",
+			"timeline": {
+				"id": "SPECIAL_SPECIAL_AOE_STUN_TIMELINE",
+				"totalFrames": 3,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"range": 1,
+							"maxTargets": 4
+						}
+					},
+					{
+						"type": "ADD_STATUS_EFFECT",
+						"params": {
+							"statusEffectId": "STATUS_EFFECT_STUN",
+							"applyToTargets": true
+						}
+					},
+					{
+						"type": "PLAY_AUDIO",
+						"params": {
+							"audioId": "PLAYER_ATTACK"
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SPECIAL_FORCE_PUSH",
+			"name": "Force Push",
+			"description": "Pushes all enemies surrounding you away by upto 2 units\n\n[color=#9fc5e8]Mana Cost:[/color] 3",
+			"count": 2,
+			"soulCost": 0,
+			"executeCondition": "NONE",
+			"timeline": {
+				"id": "SPECIAL_SPECIAL_FORCE_PUSH_TIMELINE",
+				"totalFrames": 3,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"range": 1,
+							"maxTargets": 4
+						}
+					},
+					{
+						"type": "PUSH",
+						"params": {
+							"amount": 2,
+							"awayFromSource": true
+						}
+					},
+					{
+						"type": "PLAY_AUDIO",
+						"params": {
+							"audioId": "PLAYER_ATTACK"
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SPECIAL_PRECISE_STRIKE",
+			"name": "Precise Strike",
+			"description": "Does 4 damage to a single target. If player is alone, deal 8 damage instead.\n\n[color=#9fc5e8]Mana Cost:[/color] 4",
+			"count": 1,
+			"soulCost": 0,
+			"executeCondition": "NONE",
+			"hasSelection": true,
+			"selectionType": "DIRECTIONAL_CELL",
+			"selectionRange": 1,
+			"timeline": {
+				"id": "SPECIAL_SPECIAL_PRECISE_STRIKE_TIMELINE",
+				"totalFrames": 5,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"useSelectedCells": true
+						}
+					},
+					{
+						"type": "DO_DAMAGE_TO_TARGETS",
+						"params": {
+							"damage": 1
+						}
+					},
+					{
+						"type": "DO_DAMAGE_TO_TARGETS",
+						"executeCondition": "IS_TARGET_ISOLATED",
+						"params": {
+							"damage": 1
+						}
+					},
+					{
+						"type": "SHOW_CHARACTER_UI_TEXT",
+						"executeCondition": "IS_TARGET_ISOLATED",
+						"params": {
+							"text": "Precise",
+							"duration": 2
+						}
+					},
+					{
+						"type": "PLAY_AUDIO",
+						"params": {
+							"audioId": "PLAYER_ATTACK"
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SPECIAL_SHIELD_LEECH",
+			"name": "Shield Leech",
+			"description": "Gain +2 Shield. For each enemy next to the player, gain +2 Bonus Shield\n\n[color=#9fc5e8]Mana Cost:[/color] 2",
+			"count": 2,
+			"soulCost": 0,
+			"executeCondition": "NONE",
+			"timeline": {
+				"id": "SPECIAL_SPECIAL_SHIELD_LEECH_TIMELINE",
+				"totalFrames": 3,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"range": 1,
+							"maxTargets": 4
+						}
+					},
+					{
+						"type": "ADD_STAT_MODIFIER",
+						"params": {
+							"statModifiers": [
+								{
+									"type": "SHIELD",
+									"value": 2
+								}
+							]
+						}
+					},
+					{
+						"type": "ADD_STAT_MODIFIER",
+						"params": {
+							"statModifiers": [
+								{
+									"type": "SHIELD",
+									"value": 2
+								}
+							],
+							"targetMultiplier": 1
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SPECIAL_SHIELD_RESET",
+			"name": "Shield Reset",
+			"description": "Refresh your shield\n\n[color=#9fc5e8]Mana Cost:[/color] 4",
+			"count": 4,
+			"soulCost": 0,
+			"executeCondition": "NONE",
+			"timeline": {
+				"id": "SPECIAL_SPECIAL_SHIELD_RESET_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "ADD_STAT_MODIFIER",
+						"params": {
+							"statModifiers": [
+								{
+									"type": "SHIELD",
+									"percentOfMaxValue": 1
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SPECIAL_SHIELD_BASH",
+			"name": "SHIELD BASH",
+			"description": "Deal 2 damage.\n+1 damage per shield amount.\n\n[color=#9fc5e8]Mana Cost:[/color] 2",
+			"count": 2,
+			"soulCost": 0,
+			"executeCondition": "NONE",
+			"hasSelection": true,
+			"selectionType": "DIRECTIONAL_CELL",
+			"selectionRange": 1,
+			"timeline": {
+				"id": "SPECIAL_SPECIAL_SHIELD_BASH_TIMELINE",
+				"totalFrames": 4,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"useSelectedCells": true
+						}
+					},
+					{
+						"type": "DO_DAMAGE_TO_TARGETS",
+						"params": {
+							"damage": 2
+						}
+					},
+					{
+						"type": "DO_DAMAGE_TO_TARGETS",
+						"params": {
+							"useCharacterShield": true
+						}
+					},
+					{
+						"type": "PLAY_AUDIO",
+						"params": {
+							"audioId": "PLAYER_ATTACK"
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SPECIAL_BASH",
+			"name": "Bash",
+			"description": "Your next attack pushes back an enemy by 1 block.\n\n[color=#9fc5e8]Mana Cost:[/color] 2",
+			"count": 1,
+			"soulCost": 0,
+			"executeCondition": "NONE",
+			"timeline": {
+				"id": "SPECIAL_SPECIAL_BASH_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "ADD_STATUS_EFFECT",
+						"params": {
+							"statusEffectId": "STATUS_EFFECT_BASH",
+							"applyToSource": true
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "RAT_KING_SPECIAL",
+			"name": "Summon Rats",
+			"description": "Spawn 2 Rats",
+			"useCustomConditions": true,
+			"conditions": ["ON_END_TURN"],
+			"count": 3,
+			"executeCondition": "NONE",
+			"removeAfterExecute": true,
+			"timeline": {
+				"id": "SPECIAL_RAT_KING_SPECIAL_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "SPAWN_CHARACTER",
+						"params": {
+							"characterId": "RAT",
+							"count": 2
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SKELETON_KING_SPECIAL",
+			"name": "Summon Skeletons",
+			"description": "Spawn 3 Skeletons",
+			"useCustomConditions": true,
+			"conditions": ["ON_END_TURN"],
+			"count": 5,
+			"executeCondition": "NONE",
+			"removeAfterExecute": false,
+			"timeline": {
+				"id": "SPECIAL_SKELETON_KING_SPECIAL_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "SPAWN_CHARACTER",
+						"params": {
+							"characterId": "SKELETON",
+							"count": 1
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "GHOST_SPECIAL",
+			"name": "Stealth",
+			"description": "Grants the ghost stealth the first time it moves",
+			"useCustomConditions": true,
+			"executeCondition": "NO_NEARBY_ENEMY",
+			"removeAfterExecute": true,
+			"timeline": {
+				"id": "SPECIAL_GHOST_SPECIAL_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "ADD_STATUS_EFFECT",
+						"params": {
+							"statusEffectId": "STATUS_EFFECT_STEALTH_GHOST",
+							"applyToSource": true
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SERPENT_SPECIAL",
+			"name": "Petrify",
+			"description": "Stuns the target",
+			"useCustomConditions": true,
+			"#conditions": ["ON_TAKE_HIT"],
+			"conditions": ["ON_END_TURN"],
+			"count": 3,
+			"cooldown": 1,
+			"executeCondition": "NEARBY_ENEMY",
+			"timeline": {
+				"id": "SPECIAL_SERPENT_SPECIAL_TIMELINE",
+				"totalFrames": 2,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"range": 1,
+							"maxTargets": 4
+						}
+					},
+					{
+						"type": "ADD_STATUS_EFFECT",
+						"params": {
+							"statusEffectId": "STATUS_EFFECT_STUN_FROM_ENEMY",
+							"applyToTargets": true
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "AUTOMATON_SPECIAL",
+			"name": "Regeneration",
+			"description": "Heal",
+			"useCustomConditions": true,
+			"conditions": ["ON_END_TURN"],
+			"count": 4,
+			"cooldown": 1,
+			"executeCondition": "NONE",
+			"timeline": {
+				"id": "SPECIAL_AUTOMATON_SPECIAL_TIMELINE",
+				"totalFrames": 2,
+				"actions": [
+					{
+						"type": "ADD_STAT_MODIFIER",
+						"params": {
+							"statModifiers": [
+								{
+									"type": "HEALTH",
+									"value": 10
+								}
+							]
+						}
+					},
+					{
+						"type": "SHOW_CHARACTER_UI_TEXT",
+						"params": {
+							"text": "Repair"
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SHIELD_MAGE_SPECIAL",
+			"name": "Shield Allies",
+			"description": "Shields all allies by +1 Shield every 3 turns",
+			"useCustomConditions": true,
+			"conditions": ["ON_END_TURN"],
+			"count": 2,
+			"cooldown": 1,
+			"timeline": {
+				"id": "SPECIAL_SHIELD_MAGE_SPECIAL_TIMELINE",
+				"totalFrames": 2,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"affectAllies": true,
+							"affectEnemies": false
+						}
+					},
+					{
+						"type": "ADD_STAT_MODIFIER",
+						"params": {
+							"statModifiers": [
+								{
+									"type": "SHIELD",
+									"value": 1
+								}
+							],
+							"applyToTargets": true
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "CLERIC_SPECIAL",
+			"name": "Heal Allies",
+			"description": "Heal all allies by +2 Health every 3 turns",
+			"useCustomConditions": true,
+			"conditions": ["ON_END_TURN"],
+			"count": 2,
+			"cooldown": 1,
+			"timeline": {
+				"id": "SPECIAL_CLERIC_SPECIAL_TIMELINE",
+				"totalFrames": 2,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"affectAllies": true,
+							"affectEnemies": false
+						}
+					},
+					{
+						"type": "ADD_STAT_MODIFIER",
+						"params": {
+							"statModifiers": [
+								{
+									"type": "HEALTH",
+									"value": 2
+								}
+							],
+							"applyToTargets": true
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SPECIAL_FLAME_BURST",
+			"name": "Flame Burst",
+			"description": "Apply [color=#ff6b6b]Burn[/color] to all nearby enemies within 1 cell\n\n[color=#ff6b6b]Burn:[/color] Deal 1 damage every turn for 4 turns\n\n[color=#9fc5e8]Mana Cost:[/color] 3",
+			"count": 3,
+			"soulCost": 0,
+			"executeCondition": "NONE",
+			"timeline": {
+				"id": "SPECIAL_SPECIAL_BURN_TIMELINE",
+				"totalFrames": 2,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"range": 1,
+							"maxTargets": 4
+						}
+					},
+					{
+						"type": "ADD_STATUS_EFFECT",
+						"params": {
+							"statusEffectId": "STATUS_EFFECT_BURN",
+							"applyToTargets": true
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "STUN_BOT_SPECIAL",
+			"name": "Stun",
+			"description": "Stuns the target",
+			"useCustomConditions": true,
+			"#conditions": ["ON_TAKE_HIT"],
+			"conditions": ["ON_END_TURN"],
+			"count": 3,
+			"cooldown": 1,
+			"startReady": true,
+			"executeCondition": "NEARBY_ENEMY",
+			"timeline": {
+				"id": "SPECIAL_STUN_BOT_SPECIAL_TIMELINE",
+				"totalFrames": 2,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"range": 1,
+							"maxTargets": 4
+						}
+					},
+					{
+						"type": "ADD_STATUS_EFFECT",
+						"params": {
+							"statusEffectId": "STATUS_EFFECT_STUN_FROM_ENEMY",
+							"applyToTargets": true
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "SKELETON_MAGE_LIGHTNING_STRIKE",
+			"name": "Lightning Bolt",
+			"description": "A giant bolt of lightning finds a random target near the player and strikes it for 8 damage\n\n[color=#9fc5e8]Mana Cost:[/color] 4",
+			"useCustomConditions": true,
+			"conditions": ["ON_END_TURN"],
+			"count": 3,
+			"cooldown": 1,
+			"startReady": true,
+			"timeline": {
+				"id": "SKELETON_MAGE_LIGHTNING_STRIKE_TIMELINE",
+				"totalFrames": 10,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"range": -1,
+							"maxTargets": 4
+						}
+					},
+					{
+						"type": "SPAWN_EFFECT",
+						"params": {
+							"effectId": "Lightningbolt",
+							"effectPath": "entity/effects/combat/Effect_Lightning_Bolt.tscn",
+							"parent": true,
+							"attachToTargets": true
+						}
+					},
+					{
+						"type": "DO_DAMAGE_TO_TARGETS",
+						"frame": 5,
+						"params": {
+							"damage": 2,
+							"levelModifier": 1
+						}
+					}
+				]
+			}
+		}
+	]
+}

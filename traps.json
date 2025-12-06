@@ -1,0 +1,146 @@
+{
+	"traps": [
+		{
+			"id": "TRAP_SPIKES",
+			"name": "Spike Trap",
+			"description": "A hidden spike trap that deals 2 damage to any character that steps on it",
+			"path": "entity/traps/Trap_Spikes.tscn",
+			"isOneTime": true,
+			"triggerTimeline": {
+				"id": "TRAP_DAMAGE_TIMELINE",
+				"totalFrames": 2,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"affectSource": true,
+							"affectEnemies": false
+						}
+					},
+					{
+						"type": "DO_DAMAGE_TO_TARGETS",
+						"frame": 0,
+						"params": {
+							"damage": 2
+						}
+					},
+					{
+						"type": "PLAY_AUDIO",
+						"frame": 1,
+						"params": {
+							"audioId": "PLAYER_ATTACK"
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "TRAP_BURN",
+			"name": "Fire Trap",
+			"description": "A fire trap that applies burn status to any character that steps on it",
+			"path": "entity/traps/Trap_Burn.tscn",
+			"isOneTime": false,
+			"triggerTimeline": {
+				"id": "TRAP_BURN_TIMELINE",
+				"totalFrames": 2,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"affectSource": true,
+							"affectEnemies": false
+						}
+					},
+					{
+						"type": "DO_DAMAGE_TO_TARGETS",
+						"frame": 0,
+						"params": {
+							"damage": 1
+						}
+					},
+					{
+						"type": "PLAY_AUDIO",
+						"frame": 1,
+						"params": {
+							"audioId": "STATUS_EFFECT_BARRIER"
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "TRAP_GUST",
+			"name": "Wind Trap",
+			"description": "A wind trap that pushes characters forward",
+			"path": "entity/traps/Trap_Gust.tscn",
+			"isOneTime": false,
+			"triggerTimeline": {
+				"id": "TRAP_PUSH_TIMELINE",
+				"totalFrames": 2,
+				"actions": [
+					{
+						"type": "FIND_TARGETS",
+						"params": {
+							"affectSource": true,
+							"affectEnemies": false
+						}
+					},
+					{
+						"type": "PUSH",
+						"frame": 0,
+						"params": {
+							"amount": 1,
+							"awayFromSource": false,
+							"useFacing": true
+						}
+					},
+					{
+						"type": "PLAY_AUDIO",
+						"frame": 1,
+						"params": {
+							"audioId": "PLAYER_ATTACK"
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "TRAP_STUN",
+			"name": "Web Trap",
+			"description": "A web trap that stuns characters for one turn",
+			"path": "entity/traps/Trap_Stun.tscn",
+			"isOneTime": true,
+			"triggerTimeline": {
+				"id": "TRAP_STUN_TIMELINE",
+				"totalFrames": 2,
+				"actions": [
+					{
+						"type": "ADD_STATUS_EFFECT",
+						"frame": 0,
+						"team": "PLAYER",
+						"params": {
+							"statusEffectId": "STATUS_EFFECT_STUN",
+							"applyToSource": true
+						}
+					},
+					{
+						"type": "ADD_STATUS_EFFECT",
+						"frame": 0,
+						"team": "ENEMY",
+						"params": {
+							"statusEffectId": "STATUS_EFFECT_STUN_FROM_ENEMY",
+							"applyToSource": true
+						}
+					},
+					{
+						"type": "PLAY_AUDIO",
+						"frame": 1,
+						"params": {
+							"audioId": "STATUS_EFFECT_BARRIER"
+						}
+					}
+				]
+			}
+		}
+	]
+}

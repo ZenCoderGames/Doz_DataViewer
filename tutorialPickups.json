@@ -1,0 +1,64 @@
+{
+	"tutorialPickups": [
+		{
+			"id": "TUTORIAL_MOVEMENT",
+			"name": "Tutorial: Movement",
+			"description": "Use WASD or the ARROW keys to move"
+		},
+		{
+			"id": "TUTORIAL_CAMERA",
+			"name": "Tutorial: Camera Zoom",
+			"description": "Use [,] to zoom in/out the camera"
+		},
+		{
+			"id": "TUTORIAL_TOOLTIPS",
+			"name": "Tutorial: TOOLTIPS",
+			"description": "Hover over anything on the map to get information about it"
+		},
+		{
+			"id": "TUTORIAL_ATTACK",
+			"name": "Tutorial: ATTACK",
+			"description": "Moving into an enemy attacks it. They will immediately attack back."
+		},
+		{
+			"id": "TUTORIAL_MANA",
+			"name": "Tutorial: MANA",
+			"description": "Hitting enemies generate mana. This resource is used to activate specials."
+		},
+		{
+			"id": "TUTORIAL_SPECIAL",
+			"name": "Tutorial: SPECIALS",
+			"description": "These are active abilities that can trigger unique effects. They need mana to be activatable."
+		},
+		{
+			"id": "TUTORIAL_PASSIVES",
+			"name": "Tutorial: PASSIVES",
+			"description": "These are unique effects that activate automatically based on specific events or conditions. They show up in the UI Panel above."
+		},
+		{
+			"id": "TUTORIAL_SKIP_TURN",
+			"name": "Tutorial: SKIP TURN",
+			"description": "Press H to skip a turn."
+		},
+		{
+			"id": "TUTORIAL_POTIONS",
+			"name": "Tutorial: POTIONS",
+			"description": "Potions can be consumed to give buffs or bonus effects."
+		},
+		{
+			"id": "TUTORIAL_EQUIPMENT",
+			"name": "Tutorial: EQUIPMENT",
+			"description": "Equipment can be picked up to be equipped in one of the slots above (Weapon, Armor, Runes)"
+		},
+		{
+			"id": "TUTORIAL_VENDORS",
+			"name": "Tutorial: VENDORS",
+			"description": "These special characters give you unique rewards or items to buy"
+		},
+		{
+			"id": "TUTORIAL_MINIBOSS",
+			"name": "Tutorial: MINIBOSS",
+			"description": "Kill the Miniboss to exit the dungeon"
+		}
+	]
+}
