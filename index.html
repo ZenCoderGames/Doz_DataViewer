@@ -232,8 +232,13 @@
                     Object.keys(item).forEach(key => allKeys.add(key));
                 });
 
-                // Filter out columns that contain file paths (.png, .tscn, .json)
+                // Filter out columns that contain file paths (.png, .tscn, .json) or timeline fields
                 const filteredKeys = Array.from(allKeys).filter(key => {
+                    // Exclude fields containing "timeline" (case-insensitive)
+                    if (key.toLowerCase().includes('timeline')) {
+                        return false;
+                    }
+
                     // Check if any value in this column contains file extensions
                     const hasFilePath = items.some(item => {
                         const value = item[key];
