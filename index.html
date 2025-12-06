@@ -266,6 +266,21 @@
 
                         if (value === undefined || value === null) {
                             cellContent = '<span style="color: #adb5bd;">-</span>';
+                        } else if (key === 'stats' && Array.isArray(value)) {
+                            // Format stats array in a readable way
+                            const statsText = value.map(stat => {
+                                let statStr = stat.type || '';
+                                if (stat.value !== undefined) {
+                                    statStr += `: ${stat.value}`;
+                                    if (stat.maxValue !== undefined) {
+                                        statStr += `/${stat.maxValue}`;
+                                    }
+                                } else if (stat.maxValue !== undefined) {
+                                    statStr += `: ${stat.maxValue}`;
+                                }
+                                return statStr;
+                            }).join('<br>');
+                            cellContent = statsText;
                         } else if (typeof value === 'object') {
                             cellContent = `<div class="nested-data">${JSON.stringify(value, null, 2)}</div>`;
                         } else {
