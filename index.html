@@ -101,6 +101,12 @@
             border: 1px solid #ddd;
         }
 
+        th.wide-column,
+        td.wide-column {
+            width: 20%;
+            min-width: 200px;
+        }
+
         tr:hover {
             background: #f8f9fa;
         }
@@ -170,6 +176,7 @@
                 <option value="tutorialPickups.json">Tutorial Pickups</option>
                 <option value="ultimates.json">Ultimates</option>
                 <option value="vendors.json">Vendors</option>
+                <option value="progression/skilltreeShared.json">Skill Tree</option>
             </select>
         </div>
 
@@ -253,7 +260,8 @@
                 // Create table
                 let html = '<table><thead><tr>';
                 filteredKeys.forEach(key => {
-                    html += `<th>${key}</th>`;
+                    const wideClass = (key === 'stats' || key === 'description') ? ' class="wide-column"' : '';
+                    html += `<th${wideClass}>${key}</th>`;
                 });
                 html += '</tr></thead><tbody>';
 
@@ -287,7 +295,8 @@
                             cellContent = String(value);
                         }
 
-                        html += `<td>${cellContent}</td>`;
+                        const wideClass = (key === 'stats' || key === 'description') ? ' class="wide-column"' : '';
+                        html += `<td${wideClass}>${cellContent}</td>`;
                     });
                     html += '</tr>';
                 });
