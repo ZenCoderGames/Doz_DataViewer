@@ -217,11 +217,13 @@
                 const rootKey = Object.keys(data)[0];
                 let items = data[rootKey];
 
-                // Handle nested structure (e.g., characters -> heroes)
+                // Handle nested structure (e.g., characters -> heroes, skilltree -> skills)
                 if (!Array.isArray(items) && typeof items === 'object') {
-                    // Look for an array in the nested object
-                    const nestedKey = Object.keys(items)[0];
-                    items = items[nestedKey];
+                    // Look for the first array in the nested object
+                    const nestedKey = Object.keys(items).find(key => Array.isArray(items[key]));
+                    if (nestedKey) {
+                        items = items[nestedKey];
+                    }
                 }
 
                 if (!Array.isArray(items) || items.length === 0) {
