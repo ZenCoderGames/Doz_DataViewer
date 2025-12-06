@@ -196,7 +196,7 @@
             recordCount.style.display = 'none';
 
             try {
-                const response = await fetch(`data/${fileName}`);
+                const response = await fetch(`./data/${fileName}`);
                 if (!response.ok) {
                     throw new Error(`Failed to load ${fileName} (Status: ${response.status} ${response.statusText})`);
                 }
