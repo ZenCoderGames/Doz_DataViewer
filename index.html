@@ -206,7 +206,14 @@
             recordCount.style.display = 'none';
 
             try {
-                const response = await fetch(`./data/${fileName}`);
+                // Add cache-busting timestamp to prevent stale data
+                const cacheBuster = `?t=${Date.now()}`;
+                const response = await fetch(`./data/${fileName}${cacheBuster}`, {
+                    cache: 'no-store',
+                    headers: {
+                        'Cache-Control': 'no-cache'
+                    }
+                });
                 if (!response.ok) {
                     throw new Error(`Failed to load ${fileName} (Status: ${response.status} ${response.statusText})`);
                 }
