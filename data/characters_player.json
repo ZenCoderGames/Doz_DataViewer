@@ -3,7 +3,7 @@
 		"heroes": [
 			{
 				"id": "HERO_TEST",
-				"displayName": "You",
+				"displayName": "Champion",
 				"description": "Champion",
 				"path": "entity/characters/Player/PlayerCharacter.tscn",
 				"spritePath": "entity/characters/textures/Player_Base.png",
@@ -13,7 +13,7 @@
 				"stats": [
 					{
 						"type": "HEALTH",
-						"value": 1
+						"value": 4
 					},
 					{
 						"type": "DAMAGE",
@@ -27,7 +27,7 @@
 			},
 			{
 				"id": "HERO_TUTORIAL",
-				"displayName": "You",
+				"displayName": "Champion",
 				"description": "Champion",
 				"path": "entity/characters/Player/PlayerCharacter.tscn",
 				"spritePath": "entity/characters/textures/Player_Base.png",
