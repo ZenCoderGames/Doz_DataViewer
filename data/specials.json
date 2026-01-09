@@ -8,7 +8,7 @@
 			"soulCost": 0,
 			"cooldown": 4,
 			"executeCondition": "NONE",
-			"useDefenseSlot": true,
+			"slotType": "DEFENSE",
 			"iconImagePath": "sourceArt/UI/Abilities/T_UI_Icon_Ability_WaitTurn.png",
 			"timeline": {
 				"id": "SPECIAL_SPECIAL_SKIP_TURN_TIMELINE",
@@ -30,9 +30,13 @@
 			"count": 1,
 			"soulCost": 0,
 			"cooldown": 4,
+			"iconImagePath": "sourceArt/UI/Abilities/T_UI_Icon_Ability_Absorption.png",
+			"isGeneric": true,
 			"executeCondition": "NONE",
 			"hasSelection": true,
-			"selectionType": "DIRECTIONAL",
+			"selectionType": "DIRECTIONAL_CELL",
+			"selectionRange": 2,
+			"selectionStopsAtEntity": true,
 			"timeline": {
 				"id": "SPECIAL_SPECIAL_DASH_TIMELINE",
 				"totalFrames": 1,
@@ -53,6 +57,7 @@
 			"description": "Grants [color=#b4a7d6]Protection[/color] until next hit[color=#b4a7d6]\n\nProtection:[/color]Invulnerability to damage until hit\n\n[color=#9fc5e8]Mana Cost:[/color] 3",
 			"count": 4,
 			"soulCost": 0,
+			"isGeneric": true,
 			"executeCondition": "NONE",
 			"iconImagePath": "sourceArt/UI/Abilities/T_UI_Icon_Ability_Protection.png", 
 			"timeline": {
@@ -76,6 +81,8 @@
 			"description": "Do a 360 spin attack with your current damage\n\n[color=#9fc5e8]Mana Cost:[/color] 3",
 			"count": 4,
 			"soulCost": 0,
+			"iconImagePath": "sourceArt/UI/Abilities/T_UI_Icon_Ability_Absorption.png",
+			"isGeneric": true,
 			"executeCondition": "NONE",
 			"timeline": {
 				"id": "SPECIAL_SPECIAL_WHIRLWIND_TIMELINE",
@@ -103,6 +110,8 @@
 			"description": "Grants [color=#b4a7d6]Stealth[/color] for 3 turns[color=#b4a7d6]\n\nStealth:[/color] Invisible to enemies\n\n[color=#9fc5e8]Mana Cost:[/color] 2",
 			"count": 3,
 			"soulCost": 0,
+			"iconImagePath": "sourceArt/UI/Abilities/T_UI_Icon_Ability_Absorption.png",
+			"isGeneric": true,
 			"executeCondition": "NONE",
 			"timeline": {
 				"id": "SPECIAL_SPECIAL_STEALTH_TIMELINE",
@@ -142,6 +151,8 @@
 			"description": "Teleport behind a target and strike them with attack damage\n\n[color=#9fc5e8]Mana Cost:[/color] 3",
 			"count": 3,
 			"soulCost": 0,
+			"iconImagePath": "sourceArt/UI/Abilities/T_UI_Icon_Ability_Absorption.png",
+			"isGeneric": true,
 			"executeCondition": "NONE",
 			"hasSelection": true,
 			"selectionType": "DIRECTIONAL_CELL",
@@ -170,6 +181,8 @@
 			"description": "Swap positions with a target\n\n[color=#9fc5e8]Mana Cost:[/color] 2",
 			"count": 2,
 			"soulCost": 0,
+			"iconImagePath": "sourceArt/UI/Abilities/T_UI_Icon_Ability_Absorption.png",
+			"isGeneric": true,
 			"executeCondition": "NONE",
 			"hasSelection": true,
 			"selectionType": "DIRECTIONAL_CELL",
@@ -198,6 +211,8 @@
 			"description": "Drain +2 life from each enemy around you\n\n[color=#9fc5e8]Mana Cost:[/color] 4",
 			"count": 4,
 			"soulCost": 0,
+			"iconImagePath": "sourceArt/UI/Abilities/T_UI_Icon_Ability_Absorption.png",
+			"isGeneric": true,
 			"executeCondition": "NONE",
 			"timeline": {
 				"id": "SPECIAL_SPECIAL_LIFE_DRAIN_TIMELINE",
@@ -231,6 +246,8 @@
 			"description": "A giant bolt of lightning finds a random target near the player and strikes it for 8 damage\n\n[color=#9fc5e8]Mana Cost:[/color] 4",
 			"count": 4,
 			"soulCost": 0,
+			"iconImagePath": "sourceArt/UI/Abilities/T_UI_Icon_Ability_Absorption.png",
+			"isGeneric": true,
 			"executeCondition": "NONE",
 			"hasSelection": true,
 			"selectionType": "DIRECTIONAL_CELL",
@@ -272,9 +289,11 @@
 		{
 			"id": "SPECIAL_AOE_STUN",
 			"name": "Ground Stomp",
-			"description": "Stun all enemies around you\n\n[color=#9fc5e8]Mana Cost:[/color] 4",
+			"description": "Stun all enemies around you\n\n[color=#9fc5e8]Mana Cost:[/color] 3",
 			"count": 3,
 			"soulCost": 0,
+			"iconImagePath": "sourceArt/UI/Abilities/T_UI_Icon_Ability_Absorption.png",
+			"isGeneric": true,
 			"executeCondition": "NONE",
 			"timeline": {
 				"id": "SPECIAL_SPECIAL_AOE_STUN_TIMELINE",
@@ -309,6 +328,8 @@
 			"description": "Pushes all enemies surrounding you away by upto 2 units\n\n[color=#9fc5e8]Mana Cost:[/color] 3",
 			"count": 2,
 			"soulCost": 0,
+			"iconImagePath": "sourceArt/UI/Abilities/T_UI_Icon_Ability_Absorption.png",
+			"isGeneric": true,
 			"executeCondition": "NONE",
 			"timeline": {
 				"id": "SPECIAL_SPECIAL_FORCE_PUSH_TIMELINE",
@@ -343,6 +364,8 @@
 			"description": "Does 4 damage to a single target. If player is alone, deal 8 damage instead.\n\n[color=#9fc5e8]Mana Cost:[/color] 4",
 			"count": 1,
 			"soulCost": 0,
+			"iconImagePath": "sourceArt/UI/Abilities/T_UI_Icon_Ability_Absorption.png",
+			"isGeneric": true,
 			"executeCondition": "NONE",
 			"hasSelection": true,
 			"selectionType": "DIRECTIONAL_CELL",
@@ -393,6 +416,8 @@
 			"description": "Gain +2 Shield. For each enemy next to the player, gain +2 Bonus Shield\n\n[color=#9fc5e8]Mana Cost:[/color] 2",
 			"count": 2,
 			"soulCost": 0,
+			"iconImagePath": "sourceArt/UI/Abilities/T_UI_Icon_Ability_Absorption.png",
+			"isGeneric": true,
 			"executeCondition": "NONE",
 			"timeline": {
 				"id": "SPECIAL_SPECIAL_SHIELD_LEECH_TIMELINE",
@@ -437,6 +462,8 @@
 			"description": "Refresh your shield\n\n[color=#9fc5e8]Mana Cost:[/color] 4",
 			"count": 4,
 			"soulCost": 0,
+			"iconImagePath": "sourceArt/UI/Abilities/T_UI_Icon_Ability_Absorption.png",
+			"isGeneric": true,
 			"executeCondition": "NONE",
 			"timeline": {
 				"id": "SPECIAL_SPECIAL_SHIELD_RESET_TIMELINE",
@@ -462,6 +489,8 @@
 			"description": "Deal 2 damage.\n+1 damage per shield amount.\n\n[color=#9fc5e8]Mana Cost:[/color] 2",
 			"count": 2,
 			"soulCost": 0,
+			"iconImagePath": "sourceArt/UI/Abilities/T_UI_Icon_Ability_Absorption.png",
+			"isGeneric": true,
 			"executeCondition": "NONE",
 			"hasSelection": true,
 			"selectionType": "DIRECTIONAL_CELL",
@@ -500,19 +529,28 @@
 		{
 			"id": "SPECIAL_BASH",
 			"name": "Bash",
-			"description": "Your next attack pushes back an enemy by 1 block.\n\n[color=#9fc5e8]Mana Cost:[/color] 2",
-			"count": 1,
+			"description": "Your next attack pushes back an enemy by 2 tiles.\n\n[color=#9fc5e8]Mana Cost:[/color] 2",
+			"count": 2,
 			"soulCost": 0,
+			"iconImagePath": "sourceArt/UI/Abilities/T_UI_Icon_Ability_Absorption.png",
+			"isGeneric": true,
 			"executeCondition": "NONE",
 			"timeline": {
 				"id": "SPECIAL_SPECIAL_BASH_TIMELINE",
 				"totalFrames": 1,
 				"actions": [
 					{
-						"type": "ADD_STATUS_EFFECT",
+						"type": "FIND_TARGETS",
 						"params": {
-							"statusEffectId": "STATUS_EFFECT_BASH",
-							"applyToSource": true
+							"range": 1,
+							"maxTargets": 4
+						}
+					},
+					{
+						"type": "PUSH",
+						"params": {
+							"amount": 2,
+							"awayFromSource": true
 						}
 					}
 				]

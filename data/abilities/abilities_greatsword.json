@@ -1,0 +1,122 @@
+{
+	"abilities": [
+		{
+			"id": "ABILITY_SONIC_GREATSWORD_DAMAGE_ON_SONIC",
+			"characterId": "SONIC_GREATSWORD",
+			"name": "Sonic Rage",
+			"description": "While you have Sonic, increase damage by +3",
+			"timeline": {
+				"id": "ABILITY_SONIC_GREATSWORD_DAMAGE_ON_SONIC_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "ADD_PASSIVE",
+						"params": {
+							"passiveId": "PASSIVE_RAGE_ON_SONIC"
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_SONIC_GREATSWORD_SHIELD_ON_SONIC",
+			"characterId": "SONIC_GREATSWORD",
+			"name": "Sonic Shield",
+			"description": "Gain +4 Shield when Sonic is consumed",
+			"timeline": {
+				"id": "ABILITY_SONIC_GREATSWORD_SHIELD_ON_SONIC_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "ADD_PASSIVE",
+						"params": {
+							"passiveId": "PASSIVE_SHIELD_ON_SONIC"
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_SONIC_GREATSWORD_HEAL_ON_SONIC",
+			"characterId": "SONIC_GREATSWORD",
+			"name": "Sonic Heal",
+			"description": "Heal for +3 Health when you gain Sonic",
+			"timeline": {
+				"id": "ABILITY_SONIC_GREATSWORD_SHIELD_ON_SONIC_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "ADD_PASSIVE",
+						"params": {
+							"passiveId": "PASSIVE_HEAL_ON_SONIC"
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_SONIC_GREATSWORD_FASTER_SPECIAL",
+			"characterId": "SONIC_GREATSWORD",
+			"name": "Cheaper Sonic Charge",
+			"description": "Sonic Charge cooldown reduced by 2 turns",
+			"timeline": {
+				"id": "ABILITY_SONIC_GREATSWORD_FASTER_SPECIAL_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "MODIFY_SPECIAL",
+						"params": {
+							"specialId": "SPECIAL_SONIC_GREATSWORD",
+							"cooldownModifier": -3
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_SONIC_GREATSWORD_LONGER_SPECIAL",
+			"characterId": "SONIC_GREATSWORD",
+			"name": "Longer Sonic Charge",
+			"description": "Sonic Charge range increased by 2 tiles",
+			"timeline": {
+				"id": "ABILITY_SONIC_GREATSWORD_LONGER_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "MODIFY_SPECIAL",
+						"params": {
+							"specialId": "SPECIAL_SONIC_GREATSWORD",
+							"selectionRangeModifier": 2
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_SONIC_GREATSWORD_DISTANCE_BONUS_SPECIAL",
+			"characterId": "SONIC_GREATSWORD",
+			"name": "Precise Sonic Charge",
+			"description": "Sonic Charge does +1 damage per tile it has moved",
+			"timeline": {
+				"id": "ABILITY_SONIC_GREATSWORD_DISTANCE_BONUS_SPECIAL_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					
+				]
+			}
+		},
+		{
+			"id": "ABILITY_SONIC_GREATSWORD_DISTANCE_BONUS_SPECIAL",
+			"characterId": "SONIC_GREATSWORD",
+			"name": "Precise Sonic Charge",
+			"description": "Sonic Charge does +1 damage per tile it has moved",
+			"timeline": {
+				"id": "ABILITY_SONIC_GREATSWORD_DISTANCE_BONUS_SPECIAL_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					
+				]
+			}
+		}
+	]
+}

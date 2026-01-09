@@ -1,0 +1,13 @@
+{
+	"abilityFiles": [
+		"resource/data/abilities/abilities_shared_stats.json",
+		"resource/data/abilities/abilities_shared.json",
+		"resource/data/abilities/abilities_shared_epic.json",
+		"resource/data/abilities/abilities_assassin.json",
+		"resource/data/abilities/abilities_battlemage.json",
+		"resource/data/abilities/abilities_berserker.json",
+		"resource/data/abilities/abilities_paladin.json",
+		"resource/data/abilities/abilities_greatsword.json",
+		"resource/data/abilities/abilities_shadowdaggers.json"
+	]
+}

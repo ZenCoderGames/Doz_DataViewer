@@ -1,0 +1,39 @@
+{
+	"characters": {
+		"heroes": [
+			{
+				"id": "GENERIC_HERO",
+				"displayName": "You",
+				"description": "Classless",
+				"path": "entity/characters/Player/PlayerCharacter.tscn",
+				"spritePath": "entity/characters/textures/Player_Base.png",
+				"portraitPath": "resource/portraits/Random.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Player.tscn",
+				"isGeneric": true,
+				"isInCharacterSelect": true,
+				"unlockCost": 50,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 20
+					},
+					{
+						"type": "DAMAGE",
+						"value": 3
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 8
+					},
+					{
+						"type": "ENERGY",
+						"value": 0,
+						"maxValue": 4
+					}
+				],
+				"specials": ["SPECIAL_SKIP_TURN"]
+			}
+		]
+	}
+}

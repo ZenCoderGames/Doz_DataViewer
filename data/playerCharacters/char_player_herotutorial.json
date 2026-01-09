@@ -1,0 +1,35 @@
+{
+	"characters": {
+		"heroes": [
+			{
+				"id": "HERO_TUTORIAL",
+				"displayName": "Champion",
+				"description": "Champion",
+				"path": "entity/characters/Player/PlayerCharacter.tscn",
+				"spritePath": "entity/characters/textures/Player_Base.png",
+				"portraitPath": "resource/portraits/Paladin.png",
+				"isGeneric": true,
+				"isInCharacterSelect": false,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 30
+					},
+					{
+						"type": "DAMAGE",
+						"value": 2
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 8
+					},
+					{
+						"type": "ENERGY",
+						"maxValue": 4
+					}
+				]
+			}
+		]
+	}
+}

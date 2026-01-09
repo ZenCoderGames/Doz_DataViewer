@@ -20,7 +20,6 @@
 				{
 					"tutorialPickups": [
 						"TUTORIAL_MOVEMENT",
-						"TUTORIAL_CAMERA",
 						"TUTORIAL_TOOLTIPS"
 					]
 				},
@@ -47,7 +46,7 @@
 					"tutorialPickups": [
 						"TUTORIAL_VENDORS"
 					],
-					"vendorList": ["MYSTIC_VENDOR"]
+					"vendorList": ["ARCHANGEL_VENDOR"]
 				},
 				{
 					"tutorialPickups": [

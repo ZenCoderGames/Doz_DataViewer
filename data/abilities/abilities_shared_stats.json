@@ -1,0 +1,137 @@
+{
+	"abilities": [
+		{
+			"id": "ABILITY_DAMAGE_UPGRADE",
+			"characterId": "",
+			"isStatAbility": true,
+			"name": "Damage Boost",
+			"description": "+1 Base Attack",
+			"soulCost": 10,
+			"timeline": {
+				"id": "ABILITY_DAMAGE_UPGRADE_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "ADD_STAT_MODIFIER",
+						"params": {
+							"statModifiers": [
+								{
+									"type": "DAMAGE",
+									"absoluteValue": 1
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_HEALTH_UPGRADE",
+			"characterId": "",
+			"isStatAbility": true,
+			"name": "Health Upgrade",
+			"description": "+4 Max Health",
+			"soulCost": 10,
+			"timeline": {
+				"id": "ABILITY_HEALTH_UPGRADE_TIMELINE",
+				"totalFrames": 1,
+					"actions": [
+					{
+						"type": "ADD_STAT_MODIFIER",
+						"params": {
+							"statModifiers": [
+								{
+									"type": "HEALTH",
+									"absoluteValue": 4
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_SHIELD_UPGRADE",
+			"characterId": "",
+			"isStatAbility": true,
+			"name": "Shield Upgrade",
+			"description": "+4 Max Shield",
+			"soulCost": 10,
+			"timeline": {
+				"id": "ABILITY_SHIELD_UPGRADE_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "ADD_STAT_MODIFIER",
+						"params": {
+							"statModifiers": [
+								{
+									"type": "SHIELD",
+									"absoluteValue": 4
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_RISKY_UPGRADE_01",
+			"characterId": "",
+			"isStatAbility": true,
+			"name": "Risky Endeavor I",
+			"description": "+2 Base Attack, -4 Health",
+			"soulCost": 10,
+			"timeline": {
+				"id": "ABILITY_RISKY_UPGRADE_01_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "ADD_STAT_MODIFIER",
+						"params": {
+							"statModifiers": [
+								{
+									"type": "DAMAGE",
+									"absoluteValue": 2
+								},
+								{
+									"type": "HEALTH",
+									"value": -4
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_RISKY_UPGRADE_02",
+			"characterId": "",
+			"isStatAbility": true,
+			"name": "Risky Endeavor II",
+			"description": "+6 Max Shield, -4 Health",
+			"soulCost": 10,
+			"timeline": {
+				"id": "ABILITY_RISKY_UPGRADE_02_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "ADD_STAT_MODIFIER",
+						"params": {
+							"statModifiers": [
+								{
+									"type": "SHIELD",
+									"absoluteValue": 6
+								},
+								{
+									"type": "HEALTH",
+									"absoluteValue": -4
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	]
+}

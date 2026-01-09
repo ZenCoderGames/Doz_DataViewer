@@ -1,0 +1,30 @@
+{
+	"characters": {
+		"heroes": [
+			{
+				"id": "HERO_TEST",
+				"displayName": "Champion",
+				"description": "Champion",
+				"path": "entity/characters/Player/PlayerCharacter.tscn",
+				"spritePath": "entity/characters/textures/Player_Base.png",
+				"portraitPath": "resource/portraits/Paladin.png",
+				"isGeneric": true,
+				"isInCharacterSelect": false,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 4
+					},
+					{
+						"type": "DAMAGE",
+						"value": 2
+					},
+					{
+						"type": "ENERGY",
+						"maxValue": 4
+					}
+				]
+			}
+		]
+	}
+}

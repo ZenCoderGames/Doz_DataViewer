@@ -4,7 +4,7 @@
 			"id": "TEST_ENC_SINGLE",
 			"enemies": [
 				{
-					"type": "SKELETON",
+					"type": "SKELETON_ARCHER",
 					"count": 1
 				}
 			]
@@ -17,7 +17,7 @@
 					"count": 3
 				},
 				{
-					"type": "SKELETON",
+					"type": "SKELETON_ARCHER",
 					"count": 1
 				}
 			]
@@ -50,7 +50,18 @@
 			"enemies": [
 				{
 					"type": "DRAGON",
-					"count": 1
+					"count": 1,
+					"isBoss": true
+				}
+			]
+		},
+		{
+			"id": "BOSS_03",
+			"enemies": [
+				{
+					"type": "DRAGON",
+					"count": 3,
+					"isBoss": true
 				}
 			]
 		},

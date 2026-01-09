@@ -17,7 +17,7 @@
 			"path": "entity/items/chests/TimedChest.tscn",
 			"type": "TIMED",
 			"moveLimit": 80,
-			"vendorId": "ARCHIVIST_VENDOR"
+			"vendorId": "SHAMAN_VENDOR"
 		},
 		{
 			"id": "LOCKED_CHEST",

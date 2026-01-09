@@ -67,6 +67,7 @@
 			"path": "entity/items/consumables/Consumable_Tier3.tscn",
 			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
 			"type": "CONSUMABLE",
+			"rarity": "RARE",
 			"soulCost": 0,
 			"tier": 2,
 			"maxCount": 1,
@@ -75,6 +76,29 @@
 				{
 					"type": "HEALTH",
 					"value": 8
+				}
+			],
+			"consumeAudioId": "CONSUMABLE_POTION",
+			"#tintColor": "#3bb625"
+		},
+		{
+			"#disable": true,
+			"id": "ITEM_HEALTH_POTION_EXTRA_LARGE",
+			"name": "Mega Health Potion",
+			"description": "A mega health potion\n(Heal your full health)",
+			"fullDescription": "A magical elixar of health that on consumption.\nReplenishes the full player's health",
+			"path": "entity/items/consumables/Consumable_Tier3.tscn",
+			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
+			"type": "CONSUMABLE",
+			"rarity": "EPIC",
+			"soulCost": 0,
+			"tier": 2,
+			"maxCount": 1,
+			"onlyAtVendors": true,
+			"statModifiers": [
+				{
+					"type": "HEALTH",
+					"percentOfMaxValue": 1
 				}
 			],
 			"consumeAudioId": "CONSUMABLE_POTION",
@@ -131,6 +155,7 @@
 			"path": "entity/items/consumables/Consumable_Tier3.tscn",
 			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
 			"type": "CONSUMABLE",
+			"rarity": "RARE",
 			"soulCost": 0,
 			"tier": 2,
 			"maxCount": 1,
@@ -139,6 +164,29 @@
 				{
 					"type": "ENERGY",
 					"value": 4
+				}
+			],
+			"consumeAudioId": "CONSUMABLE_POTION",
+			"tintColor": "#9fc5e8"
+		},
+		{
+			"#disable": true,
+			"id": "ITEM_MANA_POTION_EXTRA_LARGE",
+			"name": "Mega Mana Potion",
+			"description": "A mega mana potion\n(Restore full mana)",
+			"fullDescription": "A mega mana potion\n(Restore full mana)",
+			"path": "entity/items/consumables/Consumable_Tier3.tscn",
+			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
+			"type": "CONSUMABLE",
+			"rarity": "EPIC",
+			"soulCost": 0,
+			"tier": 2,
+			"maxCount": 1,
+			"onlyAtVendors": true,
+			"statModifiers": [
+				{
+					"type": "ENERGY",
+					"percentOfMaxValue": 1
 				}
 			],
 			"consumeAudioId": "CONSUMABLE_POTION",
@@ -222,6 +270,7 @@
 			"path": "entity/items/consumables/Consumable_Tier3.tscn",
 			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
 			"type": "CONSUMABLE",
+			"rarity": "RARE",
 			"soulCost": 0,
 			"tier": 2,
 			"maxCount": 1,
@@ -237,6 +286,29 @@
 		},
 		{
 			"#disable": true,
+			"id": "ITEM_SHIELD_POTION_EXTRA_LARGE",
+			"name": "Mega Shield Potion",
+			"description": "A mega shield potion\n(Gain full shield)",
+			"fullDescription": "A magical elixar of shield that on consumption.\nGain full shield",
+			"path": "entity/items/consumables/Consumable_Tier3.tscn",
+			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
+			"type": "CONSUMABLE",
+			"rarity": "EPIC",
+			"soulCost": 0,
+			"tier": 2,
+			"maxCount": 1,
+			"onlyAtVendors": true,
+			"statModifiers": [
+				{
+					"type": "SHIELD",
+					"percentOfMaxValue": 1
+				}
+			],
+			"consumeAudioId": "CONSUMABLE_POTION",
+			"tintColor": "#3bb625"
+		},
+		{
+			"#disable": true,
 			"id": "ITEM_PRISMATIC_SHIELD",
 			"name": "Prismatic Shield",
 			"description": "Block 1 Instance of Any Damage",
@@ -244,7 +316,8 @@
 			"path": "entity/items/consumables/Consumable_Tier2.tscn",
 			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
 			"type": "CONSUMABLE",
-			"soulCost": 1,
+			"rarity": "RARE",
+			"soulCost": 0,
 			"tier": 0,
 			"maxCount": 2,
 			"statusEffectId": "STATUS_EFFECT_BARRIER",
@@ -259,7 +332,8 @@
 			"path": "entity/items/consumables/Consumable_Tier1.tscn",
 			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
 			"type": "CONSUMABLE",
-			"soulCost": 1,
+			"rarity": "RARE",
+			"soulCost": 0,
 			"tier": 0,
 			"maxCount": 2,
 			"statusEffectId": "STATUS_EFFECT_CRITICAL",
@@ -275,7 +349,8 @@
 			"path": "entity/items/consumables/Consumable_Tier1.tscn",
 			"pickupVFX": "entity/effects/Utilites/Effect_Item_Pickup.tscn",
 			"type": "CONSUMABLE",
-			"soulCost": 1,
+			"rarity": "RARE",
+			"soulCost": 0,
 			"tier": 0,
 			"maxCount": 2,
 			"statusEffectId": "STATUS_EFFECT_EVASIVE",

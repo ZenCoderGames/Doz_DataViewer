@@ -1,0 +1,184 @@
+{
+	"characters": {
+		"heroes": [
+			{
+				"id": "PALADIN",
+				"displayName": "Paladin",
+				"description": "Paladin",
+				"path": "entity/characters/Player/Paladin.tscn",
+				"#spritePath": "entity/characters/textures/Player_Base.png",
+				"portraitPath": "resource/portraits/Paladin_Portrait.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Player.tscn",
+				"isGeneric": false,
+				"isInCharacterSelect": true,
+				"isUnlocked": true,
+				"unlockCost": 50,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 20
+					},
+					{
+						"type": "DAMAGE",
+						"value": 2
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 4
+					},
+					{
+						"type": "ENERGY",
+						"value": 0,
+						"maxValue": 4
+					}
+				],
+				"specials": ["SPECIAL_PROTECTION", "SPECIAL_SKIP_TURN"],
+				"passives": ["PASSIVE_PALADIN"],
+				"ultimate": "PALADIN_ULTIMATE",
+				"idleTimeline": {
+					"id": "PALADIN_IDLE_TIMELINE",
+					"totalFrames": 1,
+					"tags": ["BLOCKING"],
+					"isBlocking": false,
+					"actions": [
+						{
+							"type": "PLAY_ANIMATION",
+							"params": {
+								"animationName": "Paladin_idle"
+							}
+						}
+					]
+				},
+				"moveTimeline": {
+					"id": "PALADIN_MOVE_TIMELINE",
+					"totalFrames": 1,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "#PLAY_ANIMATION",
+							"params": {
+								"animationName": "Paladin_idle"
+							}
+						},
+						{
+							"type": "MOVEMENT",
+							"params": {
+								"moveType": "INPUT"
+							}
+						}
+					]
+				},
+				"attackComboTimelines": [
+					{
+						"id": "PALADIN_ATTACK_01_TIMELINE",
+						"totalFrames": 24,
+						"speed": 1.5,
+						"tags": ["BLOCKING"],
+						"useCharacterTarget":true,
+						"actions": [
+							{
+								"type": "PLAY_ANIMATION",
+								"params": {
+									"animationName": "Paladin_attack"
+								}
+							},
+							{
+								"type": "DO_HIT",
+								"frame": 12,
+								"params": {
+								}
+							}
+						]
+					},
+					{
+						"id": "PALADIN_ATTACK_02_TIMELINE",
+						"totalFrames": 24,
+						"speed": 1.5,
+						"tags": ["BLOCKING"],
+						"useCharacterTarget":true,
+						"actions": [
+							{
+								"type": "PLAY_ANIMATION",
+								"params": {
+									"animationName": "Paladin_attack_2"
+								}
+							},
+							{
+								"type": "DO_HIT",
+								"frame": 12,
+								"params": {
+								}
+							}
+						]
+					},
+					{
+						"id": "PALADIN_ATTACK_03_TIMELINE",
+						"totalFrames": 24,
+						"speed": 1.5,
+						"tags": ["BLOCKING"],
+						"useCharacterTarget":true,
+						"actions": [
+							{
+								"type": "PLAY_ANIMATION",
+								"params": {
+									"animationName": "Paladin_Attack_3"
+								}
+							},
+							{
+								"type": "DO_HIT",
+								"frame": 12,
+								"params": {
+									
+								}
+							},
+							{
+								"type": "LIFESTEAL",
+								"frame": 14,
+								"params": {
+									"flatAmount": 1
+								}
+							},
+							{
+								"type": "SPAWN_EFFECT",
+								"frame": 14,
+								"params": {
+									"effectId": "LifestealFX",
+									"effectPath": "entity/effects/Utilites/Effect_Lifesteal.tscn",
+									"parent": true
+								}
+							}
+						]
+					}
+				],
+				"takeHitTimeline": {
+					"id": "PALADIN_TAKE_HIT_TIMELINE",
+					"totalFrames": 5,
+					"speed": 1.0,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "PLAY_ANIMATION",
+							"params": {
+								"animationName": "Paladin_take_damage"
+							}
+						}
+					]
+				},
+				"deathTimeline": {
+					"id": "PALADIN_DEATH_TIMELINE",
+					"totalFrames": 20,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "PLAY_ANIMATION",
+							"params": {
+								"animationName": "Paladin_Death"
+							}
+						}
+					]
+				}
+			}
+		]
+	}
+}

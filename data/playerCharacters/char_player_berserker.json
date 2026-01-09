@@ -1,0 +1,172 @@
+{
+	"characters": {
+		"heroes": [
+			{
+				"id": "BERSERKER",
+				"displayName": "Berserker",
+				"description": "Berserker",
+				"path": "entity/characters/Player/PlayerCharacter_v2.tscn",
+				"#spritePath": "entity/characters/textures/Player_Base.png",
+				"portraitPath": "resource/portraits/Berserker.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Player.tscn",
+				"isGeneric": false,
+				"isInCharacterSelect": true,
+				"unlockCost": 50,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 16
+					},
+					{
+						"type": "DAMAGE",
+						"value": 2
+					},
+					{
+						"type": "SHIELD",
+						"value": 4,
+						"maxValue": 8
+					},
+					{
+						"type": "ENERGY",
+						"maxValue": 4
+					}
+				],
+				"specials": ["SPECIAL_AOE_STUN", "SPECIAL_SKIP_TURN"],
+				"passives": ["PASSIVE_BERSERKER"],
+				"ultimate": "BERSERKER_ULTIMATE",
+				"idleTimeline": {
+					"id": "BERSERKER_IDLE_TIMELINE",
+					"totalFrames": 1,
+					"tags": ["BLOCKING"],
+					"isBlocking": false,
+					"actions": [
+						{
+							"type": "PLAY_ANIMATION",
+							"params": {
+								"animationName": "vampire_idle"
+							}
+						}
+					]
+				},
+				"moveTimeline": {
+					"id": "BERSERKER_MOVE_TIMELINE",
+					"totalFrames": 1,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "#PLAY_ANIMATION",
+							"params": {
+								"animationName": "vampire_idle"
+							}
+						},
+						{
+							"type": "MOVEMENT",
+							"params": {
+								"moveType": "INPUT"
+							}
+						}
+					]
+				},
+				"attackComboTimelines": [
+					{
+						"id": "BERSERKER_ATTACK_01_TIMELINE",
+						"totalFrames": 30,
+						"speed": 1.5,
+						"tags": ["BLOCKING"],
+						"useCharacterTarget":true,
+						"actions": [
+							{
+								"type": "PLAY_ANIMATION",
+								"params": {
+									"animationName": "vampire_attack"
+								}
+							},
+							{
+								"type": "DO_HIT",
+								"frame": 14,
+								"params": {
+								}
+							}
+						]
+					},
+					{
+						"id": "BERSERKER_ATTACK_02_TIMELINE",
+						"totalFrames": 30,
+						"speed": 1.5,
+						"tags": ["BLOCKING"],
+						"useCharacterTarget":true,
+						"actions": [
+							{
+								"type": "PLAY_ANIMATION",
+								"params": {
+									"animationName": "vampire_attack"
+								}
+							},
+							{
+								"type": "DO_HIT",
+								"frame": 14,
+								"params": {
+								}
+							}
+						]
+					},
+					{
+						"id": "BERSERKER_ATTACK_03_TIMELINE",
+						"totalFrames": 30,
+						"speed": 1.5,
+						"tags": ["BLOCKING"],
+						"useCharacterTarget":true,
+						"actions": [
+							{
+								"type": "PLAY_ANIMATION",
+								"params": {
+									"animationName": "vampire_attack"
+								}
+							},
+							{
+								"type": "ADD_STATUS_EFFECT",
+								"params": {
+									"statusEffectId": "STATUS_EFFECT_CRITICAL",
+									"applyToSource": true
+								}
+							},
+							{
+								"type": "DO_HIT",
+								"frame": 14,
+								"params": {
+									
+								}
+							}
+						]
+					}
+				],
+				"takeHitTimeline": {
+					"id": "BERSERKER_TAKE_HIT_TIMELINE",
+					"totalFrames": 15,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "PLAY_ANIMATION",
+							"params": {
+								"animationName": "vampire_take_damage"
+							}
+						}
+					]
+				},
+				"deathTimeline": {
+					"id": "BERSERKER_DEATH_TIMELINE",
+					"totalFrames": 42,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "PLAY_ANIMATION",
+							"params": {
+								"animationName": "vampire_death"
+							}
+						}
+					]
+				}
+			}
+		]
+	}
+}

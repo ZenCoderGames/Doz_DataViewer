@@ -1,0 +1,100 @@
+{
+	"abilities": [
+		{
+			"id": "ABILITY_DOUBLE_DAMAGE",
+			"characterId": "",
+			"name": "Double Damage",
+			"description": "Double your damage",
+			"rarity": "EPIC",
+			"timeline": {
+				"id": "ABILITY_DOUBLE_DAMAGE_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "ADD_STAT_MODIFIER",
+						"params": {
+							"statModifiers": [
+								{
+									"type": "DAMAGE",
+									"absolutePercentOfMaxValue": 1
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_DOUBLE_HEALTH",
+			"characterId": "",
+			"name": "Double Health",
+			"description": "Double your max health",
+			"rarity": "EPIC",
+			"timeline": {
+				"id": "ABILITY_DOUBLE_HEALTH_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "ADD_STAT_MODIFIER",
+						"params": {
+							"statModifiers": [
+								{
+									"type": "HEALTH",
+									"absolutePercentOfMaxValue": 1
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_DOUBLE_MANA",
+			"characterId": "",
+			"name": "Double Mana",
+			"description": "Double your max mana",
+			"rarity": "EPIC",
+			"timeline": {
+				"id": "ABILITY_DOUBLE_MANA_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "ADD_STAT_MODIFIER",
+						"params": {
+							"statModifiers": [
+								{
+									"type": "ENERGY",
+									"absolutePercentOfMaxValue": 1
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_DOUBLE_SHIELD",
+			"characterId": "",
+			"name": "Double Shield",
+			"description": "Double your max shield",
+			"rarity": "EPIC",
+			"timeline": {
+				"id": "ABILITY_DOUBLE_SHIELD_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "ADD_STAT_MODIFIER",
+						"params": {
+							"statModifiers": [
+								{
+									"type": "SHIELD",
+									"absolutePercentOfMaxValue": 1
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	]
+}

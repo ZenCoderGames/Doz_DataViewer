@@ -1,0 +1,41 @@
+{
+	"characters": {
+		"heroes": [
+			{
+				"id": "BATTLE_MAGE",
+				"displayName": "Battle Mage",
+				"description": "Battle Mage",
+				"path": "entity/characters/Player/PlayerCharacter.tscn",
+				"spritePath": "entity/characters/textures/Player_Base.png",
+				"portraitPath": "resource/portraits/Random.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Player.tscn",
+				"isGeneric": false,
+				"isInCharacterSelect": true,
+				"unlockCost": 50,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 25
+					},
+					{
+						"type": "DAMAGE",
+						"value": 1
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 6
+					},
+					{
+						"type": "ENERGY",
+						"value": 0,
+						"maxValue": 5
+					}
+				],
+				"specials": ["SPECIAL_LIGHTNING_BOLT", "SPECIAL_FLAME_BURST", "SPECIAL_SKIP_TURN"],
+				"passives": ["PASSIVE_BATTLE_MAGE"],
+				"ultimate": "BATTLEMAGE_ULTIMATE"
+			}
+		]
+	}
+}

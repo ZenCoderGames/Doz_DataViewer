@@ -1,128 +1,127 @@
 {
 	"abilities": [
 		{
-			"id": "ABILITY_DAMAGE_UPGRADE",
+			"id": "ABILITY_DAMAGE_ON_STUN",
 			"characterId": "",
-			"name": "Damage Boost",
-			"description": "+1 Base Attack",
-			"soulCost": 10,
+			"name": "Concussive Rage",
+			"description": "Every enemy that is stunned, increases damage by 2 for 2 turns",
 			"timeline": {
-				"id": "ABILITY_DAMAGE_UPGRADE_TIMELINE",
+				"id": "ABILITY_DAMAGE_ON_STUN_TIMELINE",
 				"totalFrames": 1,
 				"actions": [
 					{
-						"type": "ADD_STAT_MODIFIER",
+						"type": "ADD_PASSIVE",
 						"params": {
-							"statModifiers": [
-								{
-									"type": "DAMAGE",
-									"absoluteValue": 1
-								}
-							]
+							"passiveId": "PASSIVE_RAGE_ON_STUN"
 						}
 					}
 				]
 			}
 		},
 		{
-			"id": "ABILITY_HEALTH_UPGRADE",
+			"id": "ABILITY_UPGRADED_STUN",
 			"characterId": "",
-			"name": "Health Upgrade",
-			"description": "+4 Max Health",
-			"soulCost": 10,
+			"name": "Bigger Concussive",
+			"description": "Allows Stun to last for 1 Additional Turn",
 			"timeline": {
-				"id": "ABILITY_HEALTH_UPGRADE_TIMELINE",
+				"id": "ABILITY_UPGRADED_STUN_TIMELINE",
 				"totalFrames": 1,
-					"actions": [
+				"actions": [
 					{
-						"type": "ADD_STAT_MODIFIER",
+						"type": "MODIFY_STATUS_EFFECT",
 						"params": {
-							"statModifiers": [
-								{
-									"type": "HEALTH",
-									"absoluteValue": 4
-								}
-							]
+							"statusEffectId": "STATUS_EFFECT_STUN",
+							"instanceCountModifier": 1
 						}
 					}
 				]
 			}
 		},
 		{
-			"id": "ABILITY_SHIELD_UPGRADE",
+			"id": "ABILITY_HEAL_ON_STUN",
 			"characterId": "",
-			"name": "Shield Upgrade",
-			"description": "+4 Max Shield",
-			"soulCost": 10,
+			"name": "Concussive Heal",
+			"description": "+2 heal when you stun an enemy",
 			"timeline": {
-				"id": "ABILITY_SHIELD_UPGRADE_TIMELINE",
+				"id": "ABILITY_HEAL_ON_STUN_TIMELINE",
 				"totalFrames": 1,
 				"actions": [
 					{
-						"type": "ADD_STAT_MODIFIER",
+						"type": "ADD_PASSIVE",
 						"params": {
-							"statModifiers": [
-								{
-									"type": "SHIELD",
-									"absoluteValue": 4
-								}
-							]
+							"passiveId": "PASSIVE_HEAL_ON_STUN"
 						}
 					}
 				]
 			}
 		},
 		{
-			"id": "ABILITY_RISKY_UPGRADE_01",
+			"id": "ABILITY_HEAL_ON_PROTECTION",
 			"characterId": "",
-			"name": "Risky Endeavor I",
-			"description": "+2 Base Attack, -4 Health",
-			"soulCost": 10,
+			"name": "Protection Heal",
+			"description": "Heal for 1 whenever you block a hit",
 			"timeline": {
-				"id": "ABILITY_RISKY_UPGRADE_01_TIMELINE",
+				"id": "ABILITY_HEAL_ON_PROTECTION_TIMELINE",
 				"totalFrames": 1,
 				"actions": [
 					{
-						"type": "ADD_STAT_MODIFIER",
+						"type": "ADD_PASSIVE",
 						"params": {
-							"statModifiers": [
-								{
-									"type": "DAMAGE",
-									"absoluteValue": 2
-								},
-								{
-									"type": "HEALTH",
-									"value": -4
-								}
-							]
+							"passiveId": "PASSIVE_PALADIN"
 						}
 					}
 				]
 			}
 		},
 		{
-			"id": "ABILITY_RISKY_UPGRADE_02",
+			"id": "ABILITY_SHIELD_ON_KILL",
 			"characterId": "",
-			"name": "Risky Endeavor II",
-			"description": "+4 Max Shield, -4 Health",
-			"soulCost": 10,
+			"name": "Shield on Kill",
+			"description": "For every kill, you gain +2 Shield",
 			"timeline": {
-				"id": "ABILITY_RISKY_UPGRADE_02_TIMELINE",
+				"id": "ABILITY_SHIELD_ON_KILL_TIMELINE",
 				"totalFrames": 1,
 				"actions": [
 					{
-						"type": "ADD_STAT_MODIFIER",
+						"type": "ADD_PASSIVE",
 						"params": {
-							"statModifiers": [
-								{
-									"type": "SHIELD",
-									"absoluteValue": 4
-								},
-								{
-									"type": "HEALTH",
-									"absoluteValue": -4
-								}
-							]
+							"passiveId": "PASSIVE_BERSERKER"
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_CRIT_ON_STUN",
+			"characterId": "",
+			"name": "Critical Strike On Stun",
+			"description": "Critical hit on any stunned target",
+			"timeline": {
+				"id": "ABILITY_CRIT_ON_STUN_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "ADD_PASSIVE",
+						"params": {
+							"passiveId": "PASSIVE_STUN_CRITICAL"
+						}
+					}
+				]
+			}
+		},
+		{
+			"id": "ABILITY_LIFESTEAL_ON_KILL",
+			"characterId": "",
+			"name": "Lifesteal",
+			"description": "Lifesteal +2 On Kill",
+			"timeline": {
+				"id": "ABILITY_LIFESTEAL_ON_KILL_TIMELINE",
+				"totalFrames": 1,
+				"actions": [
+					{
+						"type": "ADD_PASSIVE",
+						"params": {
+							"passiveId": "PASSIVE_LIFESTEAL_ON_KILL"
 						}
 					}
 				]

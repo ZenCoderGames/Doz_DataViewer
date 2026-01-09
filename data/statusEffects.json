@@ -492,42 +492,6 @@
 			}
 		},
 		{
-			"id": "STATUS_EFFECT_BASH",
-			"name": "Bash",
-			"description": "Next Attack pushes enemy back 1 Block",
-			"instanceCount": 1,
-			"endConditions": [
-				"ON_POST_ATTACK"
-			],
-			"endTimeline": {
-				"id": "STATUS_EFFECT_STATUS_EFFECT_BASH_END_TIMELINE",
-				"totalFrames": 3,
-				"actions": [
-					{
-						"type": "FIND_TARGETS",
-						"params": {
-							"lastHitTarget": true,
-							"maxTargets": 4
-						}
-					},
-					{
-						"type": "PUSH",
-						"params": {
-							"amount": 1,
-							"awayFromSource": true
-						}
-					},
-					{
-						"type": "ADD_STATUS_EFFECT",
-						"params": {
-							"statusEffectId": "STATUS_EFFECT_STUN",
-							"applyToTargets": true
-						}
-					}
-				]
-			}
-		},
-		{
 			"id": "STATUS_EFFECT_BURN",
 			"name": "Burn",
 			"description": "Deal 1 Damage",

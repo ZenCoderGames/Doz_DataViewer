@@ -215,8 +215,8 @@
 				"id": "SKELETON",
 				"displayName": "Skeleton",
 				"description": "Passive: Reincarnation (Revives once after death with full health)",
-				"path": "entity/characters/EnemyCharacter.tscn",
-				"spritePath": "entity/characters/textures/Skeleton_01.png",
+				"path": "entity/characters/Enemies/Skeleton.tscn",
+				"#spritePath": "entity/characters/textures/Skeleton_01.png",
 				"hitEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
 				"difficulty": 1,
 				"cost": 2,
@@ -238,14 +238,96 @@
 						"maxValue": 4
 					}
 				],
-				"passives": ["PASSIVE_REINCARNATION_AFTER_1"]
+				"passives": ["PASSIVE_REINCARNATION_AFTER_1"],
+				"idleTimeline": {
+					"id": "SKELETON_IDLE_TIMELINE",
+					"totalFrames": 1,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "PLAY_ANIMATION",
+							"params": {
+								"animationName": "skeleton1_idle"
+							}
+						}
+					]
+				},
+				"moveTimeline": {
+					"id": "SKELETON_MOVE_TIMELINE",
+					"totalFrames": 1,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "#PLAY_ANIMATION",
+							"params": {
+								"animationName": "skeleton1_idle"
+							}
+						},
+						{
+							"type": "MOVEMENT",
+							"params": {
+								"moveType": "INPUT"
+							}
+						}
+					]
+				},
+				"attackComboTimelines": [
+					{
+						"id": "SKELETON_ATTACK_01_TIMELINE",
+						"totalFrames": 24,
+						"speed": 1.5,
+						"tags": ["BLOCKING"],
+						"useCharacterTarget":true,
+						"actions": [
+							{
+								"type": "PLAY_ANIMATION",
+								"params": {
+									"animationName": "skeleton1_attack"
+								}
+							},
+							{
+								"type": "DO_HIT",
+								"frame": 16,
+								"params": {
+								}
+							}
+						]
+					}
+				],
+				"takeHitTimeline": {
+					"id": "SKELETON_TAKE_HIT_TIMELINE",
+					"totalFrames": 5,
+					"speed": 1.0,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "PLAY_ANIMATION",
+							"params": {
+								"animationName": "skeleton1_take_damage"
+							}
+						}
+					]
+				},
+				"deathTimeline": {
+					"id": "SKELETON_DEATH_TIMELINE",
+					"totalFrames": 20,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "PLAY_ANIMATION",
+							"params": {
+								"animationName": "skeleton1_death"
+							}
+						}
+					]
+				}
 			},
 			{
 				"#disable": true,
 				"id": "SKELETON_ARCHER",
 				"displayName": "Skeleton Archer",
 				"description": "",
-				"path": "entity/characters/EnemyCharacter.tscn",
+				"path": "entity/characters/Enemies/Skeleton_Archer.tscn",
 				"spritePath": "entity/characters/textures/Skeleton_01.png",
 				"hitEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
 				"attackRange": 3,
@@ -269,28 +351,77 @@
 						"maxValue": 4
 					}
 				],
-				"#specials": ["SKELETON_ARCHER_SHOOT"],
-				"attackTimeline": {
-					"id": "SKELETON_ARCHER_ATTACK_TIMELINE",
-					"totalFrames": 60,
+				"idleTimeline": {
+					"id": "SKELETON_ARCHER_IDLE_TIMELINE",
+					"totalFrames": 1,
 					"tags": ["BLOCKING"],
-					"useCharacterTarget":true,
 					"actions": [
 						{
-						    "type": "FIRE_PROJECTILE",
-						    "frame": 0,
-						    "params": {
-						      "projectilePath": "entity/projectiles/Projectile_Arrow.tscn",
-						      "projectileSpeed": 200.0,
-						      "arcHeight": 40.0,
-						      "doHit": true,
-						      "#impactEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
-						      "#impactEffectLifetime": 0.75,
-						      "endTimelineOnHit": true
-						    }
+							"type": "PLAY_ANIMATION",
+							"params": {
+								"animationName": "Skel_Archer_Idle"
+							}
 						}
 					]
-				}
+				},
+				"deathTimeline": {
+					"id": "SKELETON_DEATH_TIMELINE",
+					"totalFrames": 20,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "PLAY_ANIMATION",
+							"params": {
+								"animationName": "Skel_Archer_Death"
+							}
+						}
+					]
+				},
+				"takeHitTimeline": {
+					"id": "SKELETON_ARCHER_TAKE_HIT_TIMELINE",
+					"totalFrames": 5,
+					"speed": 1.0,
+					"tags": ["BLOCKING"],
+					"actions": [
+						{
+							"type": "PLAY_ANIMATION",
+							"params": {
+								"animationName": "Skel_Archer_Take_Damage"
+							}
+						}
+					]
+				},
+				"#specials": ["SKELETON_ARCHER_SHOOT"],
+				"attackComboTimelines": [
+					{
+						"id": "SKELETON_ARCHER_ATTACK_TIMELINE",
+						"totalFrames": 120,
+						"speed": 3.0,
+						"tags": ["BLOCKING"],
+						"useCharacterTarget":true,
+						"actions": [
+							{
+								"type": "PLAY_ANIMATION",
+								"params": {
+									"animationName": "Skel_Archer_Attack"
+								}
+							},
+							{
+							    "type": "FIRE_PROJECTILE",
+							    "frame": 24,
+							    "params": {
+							      "projectilePath": "entity/projectiles/Projectile_Arrow.tscn",
+							      "projectileSpeed": 300.0,
+							      "arcHeight": 40.0,
+							      "doHit": true,
+							      "#impactEffectPath": "entity/effects/combat/Effect_Hit_Enemy.tscn",
+							      "#impactEffectLifetime": 0.75,
+							      "endTimelineOnHit": true
+							    }
+							}
+						]
+					}
+				]
 			},
 			{
 				"#disable": true,

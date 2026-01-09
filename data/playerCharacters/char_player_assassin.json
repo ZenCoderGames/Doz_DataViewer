@@ -1,0 +1,41 @@
+{
+	"characters": {
+		"heroes": [
+			{
+				"id": "ASSASSIN",
+				"displayName": "Assassin",
+				"description": "Assassin",
+				"path": "entity/characters/Player/PlayerCharacter.tscn",
+				"spritePath": "entity/characters/textures/Player_Base.png",
+				"portraitPath": "resource/portraits/Assassin.png",
+				"hitEffectPath": "entity/effects/combat/Effect_Hit_Player.tscn",
+				"isGeneric": false,
+				"isInCharacterSelect": true,
+				"unlockCost": 50,
+				"stats": [
+					{
+						"type": "HEALTH",
+						"value": 12
+					},
+					{
+						"type": "DAMAGE",
+						"value": 3
+					},
+					{
+						"type": "SHIELD",
+						"value": 0,
+						"maxValue": 8
+					},
+					{
+						"type": "ENERGY",
+						"value": 0,
+						"maxValue": 3
+					}
+				],
+				"specials": ["SPECIAL_STEALTH", "SPECIAL_SKIP_TURN"],
+				"passives": ["PASSIVE_3HIT_TELEPORT_BACK"],
+				"ultimate": "ASSASSIN_ULTIMATE"
+			}
+		]
+	}
+}

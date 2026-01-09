@@ -12,7 +12,7 @@
 			"iconImagePath": "sourceArt/UI/Abilities/T_UI_Icon_Ability_Protection.png",
 			"timeline": {
 				"id": "PALADIN_ULTIMATE_TIMELINE",
-				"totalFrames": 16,
+				"totalFrames": 32,
 				"actions": [
 					{
 						"type": "PLAY_ANIMATION",
@@ -29,6 +29,7 @@
 					},
 					{
 						"type": "SPAWN_EFFECT",
+						"frame": 28,
 						"params": {
 							"effectId": "Lightningbolt",
 							"effectPath": "entity/effects/combat/Effect_Paladin_Ultimate_Bolt.tscn",
@@ -38,7 +39,7 @@
 					},
 					{
 						"type": "DO_DAMAGE_TO_TARGETS",
-						"frame": 5,
+						"frame": 28,
 						"params": {
 							"damage": 20
 						}

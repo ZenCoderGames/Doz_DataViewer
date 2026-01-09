@@ -74,6 +74,11 @@
 			"id": "STATUS_EFFECT_BARRIER",
 			"path": "audio/doz_consumable_shield.wav",
 			"volume": 1.0
+		},
+		{
+			"id": "STATUS_EFFECT_SONIC",
+			"path": "audio/doz_consumable_shield.wav",
+			"volume": 1.0
 		}
 	]
 }
